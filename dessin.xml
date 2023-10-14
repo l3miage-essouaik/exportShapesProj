@@ -1,7 +1,5 @@
-<?xml version="1.0" ?><dessin<shape><type>circle</type><x>120</x><y>40</y></shape>
-<shape>
-    <type>circle</type>
-    <x>114</x><y>70</y>
-</shape>
-<shape><type>circle</type><x>119</x><y>114</y></shape>
+<?xml version="1.0" ?><dessin<shape><type>square</type><x>73,000000</x><y>77,000000</y></shape>
+<shape><type>square</type><x>221,000000</x><y>101,000000</y></shape>
+<shape><type>square</type><x>105,000000</x><y>178,000000</y></shape>
+<shape><type>square</type><x>166,000000</x><y>22,000000</y></shape>
 ></dessin>

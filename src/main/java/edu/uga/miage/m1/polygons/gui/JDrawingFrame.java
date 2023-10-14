@@ -24,6 +24,8 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -34,7 +36,6 @@ import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,6 +47,10 @@ import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 
+import edu.uga.miage.m1.polygons.gui.command.AddCircleCommand;
+import edu.uga.miage.m1.polygons.gui.command.AddSquareCommand;
+import edu.uga.miage.m1.polygons.gui.command.AddTriangleCommand;
+import edu.uga.miage.m1.polygons.gui.command.Command;
 import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
@@ -62,10 +67,9 @@ import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
  *         "mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
  *
  */
-public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionListener {
+public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionListener, KeyListener {
 
     private enum Shapes {
-
         SQUARE, TRIANGLE, CIRCLE
     }
 
@@ -75,16 +79,16 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private Shapes mSelected;
 
-    private final JPanel mPanel;
 
     private final JLabel mLabel;
     private final transient XMLVisitor xmlVisitor;
     private final transient JSonVisitor jsonVisitor;
-
+    private final DrawingPanel mPanel;
     private final transient ActionListener mReusableActionListener = new ShapeActionListener();
     private final List<SimpleShape> listOfShapes = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(JDrawingFrame.class.getName());
-    
+    private List<Command> commandHistory = new ArrayList<>();
+
     /**
      * Tracks buttons to manage the background.
      */
@@ -99,7 +103,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         super(frameName);
         // Instantiates components
         mtoolbar = new JToolBar("Toolbar");
-        mPanel = new JPanel();
+        mPanel = new DrawingPanel(listOfShapes);
         mPanel.setBackground(Color.WHITE);
         mPanel.setLayout(null);
         mPanel.setMinimumSize(new Dimension(400, 400));
@@ -142,6 +146,13 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
         mtoolbar.add(exportToJsonButton);
 
+        mtoolbar.add(exportToXmlButton);
+        JButton ctrlZ = new JButton("ctrl z");
+        ctrlZ.addActionListener(e -> undo());
+        mtoolbar.add(ctrlZ);
+
+
+        addKeyListener(this);
     }
 
     private void exportToXml() {
@@ -227,22 +238,29 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                 case CIRCLE:
                     Circle crc = new Circle(evt.getX(), evt.getY());
                     crc.draw(g2);
-                    listOfShapes.add(crc);
+                    Command addCircleCommand = new AddCircleCommand(crc, listOfShapes);
+                    addCircleCommand.execute();
+                    commandHistory.add(addCircleCommand);
                     break;
                 case TRIANGLE:
                     Triangle trg = new Triangle(evt.getX(), evt.getY());
                     trg.draw(g2);
-                    listOfShapes.add(trg);
+                    Command addTriangleCommand = new AddTriangleCommand(trg, listOfShapes);
+                    addTriangleCommand.execute();
+                    commandHistory.add(addTriangleCommand);
                     break;
                 case SQUARE:
                     Square sqr = new Square(evt.getX(), evt.getY());
                     sqr.draw(g2);
-                    listOfShapes.add(sqr);
+                    Command addSquareCommand = new AddSquareCommand(sqr, listOfShapes);
+                    addSquareCommand.execute();
+                    commandHistory.add(addSquareCommand);
                     break;
                 default:
             }
         }
     }
+
 
     /**
      * Implements an empty method for the <tt>MouseListener</tt> interface.
@@ -331,4 +349,29 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
         }
     }
+ 
+    @Override
+    public void keyPressed(KeyEvent e) {
+        mPanel.requestFocusInWindow();
+        if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
+            System.out.println("ba33333");
+        }
+    } 
+
+    @Override
+    public void keyReleased(KeyEvent arg0) {}
+
+    @Override
+    public void keyTyped(KeyEvent arg0) {}
+
+    
+    private void undo() {
+        if (!commandHistory.isEmpty()) {
+            Command undoCommand = commandHistory.remove(commandHistory.size() - 1);
+            undoCommand.undo();
+            mPanel.repaint(); // Redessiner le panneau après la suppression
+        }
+    }
+    
+    
 }
