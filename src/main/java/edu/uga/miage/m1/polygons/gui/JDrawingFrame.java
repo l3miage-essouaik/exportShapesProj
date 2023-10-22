@@ -143,11 +143,11 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         mtoolbar.add(ctrlZ);
 
         //keyboardFocusManager pour savoir si les buttons sont préssés
-        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
-            if (e.getID() == KeyEvent.KEY_PRESSED
-                    && e.getKeyCode() == KeyEvent.VK_Z
-                    && (e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
-                keyPressed(e);
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(a -> {
+            if (a.getID() == KeyEvent.KEY_PRESSED
+                    && a.getKeyCode() == KeyEvent.VK_Z
+                    && (a.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
+                keyPressed(a);
             }
             return false;
         });
@@ -370,10 +370,13 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
 
     public void undo() {
-        if (!listOfShapes.isEmpty()) {
+        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty()) {
+            commandHistory.remove(commandHistory.size() - 1);
             listOfShapes.remove(listOfShapes.size() - 1);
+
         }
 
+        //Redessiner tous les shapes sauf celle supprimer
         Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
         newGraph.setColor(Color.WHITE);
         newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());

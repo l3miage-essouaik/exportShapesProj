@@ -4,24 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Fix ExportXml bug">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/CommandInvoker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/UndoShapeCommand.java" afterDir="false" />
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Control Z marche">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/Command.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -101,7 +87,7 @@
       <workItem from="1696492946627" duration="2004000" />
       <workItem from="1697972048801" duration="2215000" />
       <workItem from="1697974414914" duration="459000" />
-      <workItem from="1697975497970" duration="7588000" />
+      <workItem from="1697975497970" duration="8022000" />
     </task>
     <task id="LOCAL-00001" summary="Bug Sonar Fixed + dette tachnique 0">
       <created>1697979146464</created>
@@ -124,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697980902991</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Control Z marche">
+      <created>1697983224224</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983224224</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Bug Sonar Fixed + dette tachnique 0" />
     <MESSAGE value="Fix ExportXml bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix ExportXml bug" />
+    <MESSAGE value="Control Z marche" />
+    <option name="LAST_COMMIT_MESSAGE" value="Control Z marche" />
   </component>
 </project>
