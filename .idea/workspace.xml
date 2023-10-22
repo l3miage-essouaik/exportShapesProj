@@ -5,10 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Control Z marche">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/test/Visitortest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/DrawingPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +113,8 @@
       <workItem from="1696492946627" duration="2004000" />
       <workItem from="1697972048801" duration="2215000" />
       <workItem from="1697974414914" duration="459000" />
-      <workItem from="1697975497970" duration="8022000" />
+      <workItem from="1697975497970" duration="8908000" />
+      <workItem from="1697984531307" duration="235000" />
     </task>
     <task id="LOCAL-00001" summary="Bug Sonar Fixed + dette tachnique 0">
       <created>1697979146464</created>
@@ -117,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697983224224</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Control Z marche">
+      <created>1697983656624</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983656624</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

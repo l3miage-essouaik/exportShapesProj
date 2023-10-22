@@ -1,6 +1,0 @@
-projectKey=fr.uga.miage.m1:myproject_g2_5
-serverUrl=http://im2ag-sonar.u-ga.fr:9000
-serverVersion=9.1.0.47736
-dashboardUrl=http://im2ag-sonar.u-ga.fr:9000/dashboard?id=fr.uga.miage.m1%3Amyproject_g2_5
-ceTaskId=AYtXr7T68-sq8ejiU37B
-ceTaskUrl=http://im2ag-sonar.u-ga.fr:9000/api/ce/task?id=AYtXr7T68-sq8ejiU37B
