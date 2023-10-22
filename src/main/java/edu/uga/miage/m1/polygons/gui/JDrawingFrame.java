@@ -137,7 +137,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         xmlVisitor = new XMLVisitor();
         // Ajout des boutons d'export
         JButton exportToXmlButton = new JButton("Export to XML");
-        exportToXmlButton.addActionListener(e -> exportToXml());
+        exportToXmlButton.addActionListener(e -> exportToXML());
 
         mtoolbar.add(exportToXmlButton);
         JButton exportToJsonButton = new JButton("Export to JSON");
@@ -153,21 +153,22 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         addKeyListener(this);
     }
 
-    private void exportToXml() {
+    private void exportToXML() {
         try (FileWriter writer = new FileWriter("dessin.xml")) {
             XMLOutputFactory factory = XMLOutputFactory.newInstance();
             XMLStreamWriter xmlWriter = factory.createXMLStreamWriter(writer);
             xmlWriter.writeStartDocument();
+            xmlWriter.writeCharacters("\n");
             xmlWriter.writeStartElement("dessin");
 
             for (SimpleShape shape : listOfShapes) {
                 if (shape instanceof Visitable visitable) {
                     visitable.accept(xmlVisitor);
+                    xmlWriter.writeCharacters("\n");
                     writer.write(xmlVisitor.getRepresentation());
-                    writer.write("\n");
                 }
             }
-
+            xmlWriter.writeCharacters("\n");
             xmlWriter.writeEndElement();
             xmlWriter.writeEndDocument();
 
@@ -175,6 +176,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
             LOGGER.log(Level.SEVERE, "erreur:", e);
         }
     }
+
 
     private void exportToJson() {
         try (FileWriter writer = new FileWriter("dessin.json")) {
