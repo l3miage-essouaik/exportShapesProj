@@ -18,10 +18,7 @@ public class AddCircleCommand implements Command {
         listOfShapes.add(circle);
     }
 
-    @Override
-    public void undo() {
-        listOfShapes.remove(circle);
-    }
+
 
     
 }

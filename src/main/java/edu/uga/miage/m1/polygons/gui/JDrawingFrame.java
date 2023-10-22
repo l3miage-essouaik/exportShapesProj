@@ -18,18 +18,9 @@ package edu.uga.miage.m1.polygons.gui;
  * specific language governing permissions and limitations
  * under the License.
  */
+import java.awt.*;
+import java.awt.event.*;
 import java.util.logging.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
 import java.io.FileWriter;
 import java.net.URL;
 import java.util.ArrayList;
@@ -47,10 +38,7 @@ import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 
-import edu.uga.miage.m1.polygons.gui.command.AddCircleCommand;
-import edu.uga.miage.m1.polygons.gui.command.AddSquareCommand;
-import edu.uga.miage.m1.polygons.gui.command.AddTriangleCommand;
-import edu.uga.miage.m1.polygons.gui.command.Command;
+import edu.uga.miage.m1.polygons.gui.command.*;
 import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
@@ -92,6 +80,9 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * Tracks buttons to manage the background.
      */
     private final EnumMap<Shapes, JButton> mButtons = new EnumMap<>(Shapes.class);
+    private final transient Command undoCommand = new UndoShapeCommand(this);
+
+    private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
 
     /**
      * Default constructor that populates the main window.
@@ -100,6 +91,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     public JDrawingFrame(String frameName) {
         super(frameName);
+
         // Instantiates components
         mtoolbar = new JToolBar("Toolbar");
         mPanel = new DrawingPanel(listOfShapes);
@@ -147,8 +139,18 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
         mtoolbar.add(exportToXmlButton);
         JButton ctrlZ = new JButton("Revoke");
-        ctrlZ.addActionListener(e -> undo());
+        ctrlZ.addActionListener(e -> undoCommandInvoker.undo());
         mtoolbar.add(ctrlZ);
+
+        //keyboardFocusManager pour savoir si les buttons sont préssés
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(e -> {
+            if (e.getID() == KeyEvent.KEY_PRESSED
+                    && e.getKeyCode() == KeyEvent.VK_Z
+                    && (e.getModifiersEx() & InputEvent.CTRL_DOWN_MASK) != 0) {
+                keyPressed(e);
+            }
+            return false;
+        });
 
         addKeyListener(this);
     }
@@ -351,9 +353,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     @Override
     public void keyPressed(KeyEvent e) {
-        mPanel.requestFocusInWindow();
         if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
-            // empty pour le moment
+            undoCommandInvoker.undo();
         }
     }
 
@@ -367,12 +368,19 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         // empty pour le moment
     }
 
-    private void undo() {
-        if (!commandHistory.isEmpty()) {
-            Command undoCommand = commandHistory.remove(commandHistory.size() - 1);
-            undoCommand.undo();
-            mPanel.repaint(); // Redessiner le panneau après la suppression
+
+    public void undo() {
+        if (!listOfShapes.isEmpty()) {
+            listOfShapes.remove(listOfShapes.size() - 1);
         }
+
+        Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
+        newGraph.setColor(Color.WHITE);
+        newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
+        for (SimpleShape shape : listOfShapes) {
+            shape.draw(newGraph);
+        }
+
     }
 
 }

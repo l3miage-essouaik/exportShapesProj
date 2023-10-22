@@ -19,10 +19,7 @@ public class AddTriangleCommand implements Command {
         listOfShapes.add(triangle);
     }
 
-    @Override
-    public void undo() {
-        listOfShapes.remove(triangle);
-    }
+
 
     
 }

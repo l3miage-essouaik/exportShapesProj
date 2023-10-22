@@ -19,10 +19,7 @@ public class AddSquareCommand implements Command {
         listOfShapes.add(square);
     }
 
-    @Override
-    public void undo() {
-        listOfShapes.remove(square);
-    }
+
 
     
 }
