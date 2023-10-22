@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test 6%">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CircleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CircleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SquareTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" afterDir="false" />
-    </list>
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test 6%" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
