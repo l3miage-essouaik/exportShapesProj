@@ -8,7 +8,7 @@ import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class ShapeRepresentationTest {
+ class ShapeRepresentationTest {
 
     @Test
     @DisplayName("Test JSONRepresentation Circle ")

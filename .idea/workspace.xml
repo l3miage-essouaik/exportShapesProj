@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test 4%">
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test 6%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CircleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CircleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/SquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SquareTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TriangleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,74 +64,61 @@
       <recent name="C:\Users\Mouad\OneDrive\Desktop\project_Pc\exportShapesProj\src\main\test\java" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ShapeRepresentationTest">
-    <configuration name="ShapeRepresentationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TriangleTest">
+    <configuration name="CircleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myproject_g2_5" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShapeRepresentationTest" />
+      <option name="MAIN_CLASS_NAME" value="CircleTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShapeRepresentationTest.testJSONRepresentationCircle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CircleTest.testCircleGetX" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myproject_g2_5" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShapeRepresentationTest" />
-      <option name="METHOD_NAME" value="testJSONRepresentationCircle" />
+      <option name="MAIN_CLASS_NAME" value="CircleTest" />
+      <option name="METHOD_NAME" value="testCircleGetX" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShapeRepresentationTest.testXmlVisitSquare" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myproject_g2_5" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ShapeRepresentationTest" />
-      <option name="METHOD_NAME" value="testXmlVisitSquare" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShapeRepresentationtest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="myproject_g2_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ShapeRepresentationtest" />
+      <option name="MAIN_CLASS_NAME" value="SquareTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ShapeRepresentationtest.testJSONRepresentationSquare" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SquareTest.testSquareGetX" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="myproject_g2_5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="test" />
-      <option name="MAIN_CLASS_NAME" value="test.ShapeRepresentationtest" />
-      <option name="METHOD_NAME" value="testJSONRepresentationSquare" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SquareTest" />
+      <option name="METHOD_NAME" value="testSquareGetX" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TriangleTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ShapeRepresentationTest" />
-        <item itemvalue="JUnit.ShapeRepresentationTest.testXmlVisitSquare" />
-        <item itemvalue="JUnit.ShapeRepresentationTest.testJSONRepresentationCircle" />
-        <item itemvalue="JUnit.ShapeRepresentationtest.testJSONRepresentationSquare" />
-        <item itemvalue="JUnit.ShapeRepresentationtest" />
+        <item itemvalue="JUnit.TriangleTest" />
+        <item itemvalue="JUnit.SquareTest" />
+        <item itemvalue="JUnit.CircleTest" />
+        <item itemvalue="JUnit.SquareTest.testSquareGetX" />
+        <item itemvalue="JUnit.CircleTest.testCircleGetX" />
       </list>
     </recent_temporary>
   </component>
@@ -144,7 +137,7 @@
       <workItem from="1697984531307" duration="3524000" />
       <workItem from="1697988099792" duration="168000" />
       <workItem from="1697988285689" duration="703000" />
-      <workItem from="1697989012629" duration="297000" />
+      <workItem from="1697989012629" duration="1931000" />
     </task>
     <task id="LOCAL-00001" summary="Bug Sonar Fixed + dette tachnique 0">
       <created>1697979146464</created>
@@ -195,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697988972380</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Test 6%">
+      <created>1697989555296</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697989555296</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -218,6 +218,7 @@
     <MESSAGE value="Control Z marche" />
     <MESSAGE value="Dependency JUnit added" />
     <MESSAGE value="Test 4%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 4%" />
+    <MESSAGE value="Test 6%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test 6%" />
   </component>
 </project>
