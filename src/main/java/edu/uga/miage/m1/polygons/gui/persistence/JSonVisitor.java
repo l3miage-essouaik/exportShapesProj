@@ -33,7 +33,7 @@ public class JSonVisitor implements Visitor {
     }
 
     // logique de génération de de Json pour les 3 figures
-    private String generateJSON(String type, float x, float y) {
+    private String generateJSON(String type, int x, int y) {
         return "{\n" +
                 "    \"type\": \"" + type + "\",\n" +
                 "    \"x\": " + x + ",\n" +

@@ -4,11 +4,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="" />
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cvs.sh" beforeDir="false" afterPath="$PROJECT_DIR$/cvs.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dessin.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dessin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/DrawingPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Triangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/DrawingPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Triangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/sonar/report-task.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -22,18 +68,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.uga.miage.m1.polygons.gui.App" />
+      <module name="myproject_g2_5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.uga.miage.m1.polygons.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,6 +113,9 @@
       <option name="presentableId" value="Default" />
       <updated>1696492941997</updated>
       <workItem from="1696492946627" duration="2004000" />
+      <workItem from="1697972048801" duration="2215000" />
+      <workItem from="1697974414914" duration="459000" />
+      <workItem from="1697975497970" duration="3389000" />
     </task>
     <servers />
   </component>

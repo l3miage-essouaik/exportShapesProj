@@ -32,7 +32,7 @@ public class XMLVisitor implements Visitor {
         representation = generateShapeXML("triangle", triangle.getX(), triangle.getY());
     }
 
-    private String generateShapeXML(String type, float x, float y) {
+    private String generateShapeXML(String type, int x, int y) {
         return String.format("<shape><type>%s</type><x>%f</x><y>%f</y></shape>", type, x, y);
     }
 

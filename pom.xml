@@ -10,8 +10,12 @@
 		<maven.compiler.source>17</maven.compiler.source>
     	<maven.compiler.target>17</maven.compiler.target>
     	<sonar.host.url>http://im2ag-sonar.u-ga.fr:9000</sonar.host.url>
+		<sonar.login>003360e39aaeced863c8c6e4bec6bdbab15acee8</sonar.login>
+		<sonar.projectKey>fr.uga.miage.m1:myproject_g2_5</sonar.projectKey>
+		<sonar.projectName>myproject_g2_5</sonar.projectName>
 	</properties>
 	<dependencies>
+
 		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
 		<dependency>
 		    <groupId>org.glassfish</groupId>

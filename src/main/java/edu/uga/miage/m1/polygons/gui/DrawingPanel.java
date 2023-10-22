@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 
 public class DrawingPanel extends JPanel {
-    private List<SimpleShape> listOfShapes;
+    private transient List<SimpleShape> listOfShapes;
 
     public DrawingPanel(List<SimpleShape> listOfShapes) {
         this.listOfShapes = listOfShapes;

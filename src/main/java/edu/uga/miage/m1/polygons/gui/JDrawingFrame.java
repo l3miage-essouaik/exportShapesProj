@@ -1,4 +1,5 @@
 package edu.uga.miage.m1.polygons.gui;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -41,7 +42,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
@@ -79,7 +79,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private Shapes mSelected;
 
-
     private final JLabel mLabel;
     private final transient XMLVisitor xmlVisitor;
     private final transient JSonVisitor jsonVisitor;
@@ -87,7 +86,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient ActionListener mReusableActionListener = new ShapeActionListener();
     private final List<SimpleShape> listOfShapes = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(JDrawingFrame.class.getName());
-    private List<Command> commandHistory = new ArrayList<>();
+    private transient List<Command> commandHistory = new ArrayList<>();
 
     /**
      * Tracks buttons to manage the background.
@@ -147,10 +146,9 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         mtoolbar.add(exportToJsonButton);
 
         mtoolbar.add(exportToXmlButton);
-        JButton ctrlZ = new JButton("ctrl z");
+        JButton ctrlZ = new JButton("Revoke");
         ctrlZ.addActionListener(e -> undo());
         mtoolbar.add(ctrlZ);
-
 
         addKeyListener(this);
     }
@@ -261,7 +259,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
     }
 
-
     /**
      * Implements an empty method for the <tt>MouseListener</tt> interface.
      * 
@@ -349,22 +346,25 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
         }
     }
- 
+
     @Override
     public void keyPressed(KeyEvent e) {
         mPanel.requestFocusInWindow();
         if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
-            System.out.println("ba33333");
+            // empty pour le moment
         }
-    } 
+    }
 
     @Override
-    public void keyReleased(KeyEvent arg0) {}
+    public void keyReleased(KeyEvent arg0) {
+        // empty pour le moment
+    }
 
     @Override
-    public void keyTyped(KeyEvent arg0) {}
+    public void keyTyped(KeyEvent arg0) {
+        // empty pour le moment
+    }
 
-    
     private void undo() {
         if (!commandHistory.isEmpty()) {
             Command undoCommand = commandHistory.remove(commandHistory.size() - 1);
@@ -372,6 +372,5 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
             mPanel.repaint(); // Redessiner le panneau après la suppression
         }
     }
-    
-    
+
 }

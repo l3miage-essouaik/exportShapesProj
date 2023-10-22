@@ -37,11 +37,11 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
  */
 public class Triangle implements SimpleShape, Visitable {
 
-    float mX;
+    int mX;
 
-    float mY;
+    int mY;
 
-    public Triangle(float x, float y) {
+    public Triangle(int x, int y) {
         mX = x - 25;
         mY = y - 25;
     }
@@ -53,12 +53,12 @@ public class Triangle implements SimpleShape, Visitable {
      */
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float)mX + 50, mY, Color.WHITE);
         g2.setPaint(gradient);
         float[] xcoords = { mX + 25, mX, mX + 50 };
         float[] ycoords = { mY, mY + 50, mY + 50 };
         GeneralPath polygon = new GeneralPath(Path2D.WIND_EVEN_ODD, xcoords.length);
-        polygon.moveTo(mX + 25, mY);
+        polygon.moveTo((float) mX + 25, mY);
         for (int i = 0; i < xcoords.length; i++) {
             polygon.lineTo(xcoords[i], ycoords[i]);
         }
@@ -77,12 +77,12 @@ public class Triangle implements SimpleShape, Visitable {
     }
 
     @Override
-    public float getX() {
+    public int getX() {
         return mX;
     }
 
     @Override
-    public float getY() {
+    public int getY() {
         return mY;
     }
 }

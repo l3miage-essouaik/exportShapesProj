@@ -29,11 +29,11 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 
 public class Circle implements SimpleShape, Visitable {
 
-    float mX;
+    int mX;
 
-    float mY;
+    int mY;
 
-    public Circle(float x, float y) {
+    public Circle(int x, int y) {
         mX = x - 25;
         mY = y - 25;
     }
@@ -45,7 +45,7 @@ public class Circle implements SimpleShape, Visitable {
      */
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float)mX + 50, mY, Color.WHITE);
         g2.setPaint(gradient);
         g2.fill(new Ellipse2D.Double(mX, mY, 50, 50));
         BasicStroke wideStroke = new BasicStroke(2.0f);
@@ -59,11 +59,11 @@ public class Circle implements SimpleShape, Visitable {
         visitor.visit(this);
     }
 
-    public float getX() {
+    public int getX() {
         return mX;
     }
 
-    public float getY() {
+    public int getY() {
         return mY;
     }
 }

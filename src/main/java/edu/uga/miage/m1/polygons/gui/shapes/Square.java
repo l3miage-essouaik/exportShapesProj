@@ -35,11 +35,11 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
  */
 public class Square implements SimpleShape, Visitable {
 
-    float mX;
+    int mX;
 
-    float mY;
+    int mY;
 
-    public Square(float x, float y) {
+    public Square(int x, int y) {
         mX = x - 25;
         mY = y - 25;
     }
@@ -51,7 +51,7 @@ public class Square implements SimpleShape, Visitable {
      */
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.BLUE, mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(mX, mY, Color.BLUE, (float)mX + 50, mY, Color.WHITE);
         g2.setPaint(gradient);
         g2.fill(new Rectangle2D.Double(mX, mY, 50, 50));
         BasicStroke wideStroke = new BasicStroke(2.0f);
@@ -67,12 +67,12 @@ public class Square implements SimpleShape, Visitable {
     }
 
     @Override
-    public float getX() {
+    public int getX() {
         return mX;
     }
 
     @Override
-    public float getY() {
+    public int getY() {
         return mY;
     }
 }
