@@ -27,6 +27,7 @@ import java.awt.geom.Ellipse2D;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 
+
 public class Circle implements SimpleShape, Visitable {
 
     int mX;

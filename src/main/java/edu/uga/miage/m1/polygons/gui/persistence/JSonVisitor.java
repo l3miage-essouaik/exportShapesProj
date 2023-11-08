@@ -3,11 +3,15 @@ package edu.uga.miage.m1.polygons.gui.persistence;
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * @author <a href=
  *         "mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
  */
+@Getter
+@Setter
 public class JSonVisitor implements Visitor {
 
     private String representation = null;
@@ -41,22 +45,4 @@ public class JSonVisitor implements Visitor {
                 "}";
     }
 
-    /**
-     * @return the representation in JSon example for a Circle
-     *
-     *         <pre>
-     * {@code
-     *  {
-     *     "shape": {
-     *     	  "type": "circle",
-     *        "x": -25,
-     *        "y": -25
-     *     }
-     *  }
-     * }
-     *         </pre>
-     */
-    public String getRepresentation() {
-        return representation;
-    }
 }

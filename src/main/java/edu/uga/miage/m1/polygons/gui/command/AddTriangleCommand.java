@@ -4,7 +4,12 @@ package edu.uga.miage.m1.polygons.gui.command;
 import java.util.List;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
+import lombok.Getter;
+import lombok.Setter;
 
+
+@Getter
+@Setter
 public class AddTriangleCommand implements Command {
     private Triangle triangle;
     private List<SimpleShape> listOfShapes;

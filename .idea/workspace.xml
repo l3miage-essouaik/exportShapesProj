@@ -4,130 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test 6%">
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/DrawingPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/DrawingPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/GUIHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/GUIHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/JDrawingFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CircleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CircleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/JDrawingFrameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JDrawingFrameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShapeRepresentationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/SquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/SquareTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TriangleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TriangleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/App.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/DrawingPanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/Command.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/CommandInvoker.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/UndoShapeCommand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/circle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/json.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/square.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/triangle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/underc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Circle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Square.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Triangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddCircleCommand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddCircleCommand.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddSquareCommand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddSquareCommand.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddTriangleCommand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddTriangleCommand.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/CommandInvoker.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/CommandInvoker.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/UndoShapeCommand.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/UndoShapeCommand.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/JSonVisitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/JSonVisitor.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/XMLVisitor.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/XMLVisitor.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Circle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Circle.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Square.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Square.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Triangle.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Triangle.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/App.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/App.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/DrawingPanel.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/DrawingPanel.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper$1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame$ShapeActionListener.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame$Shapes.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame.java.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/index.source.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/CircleTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/JDrawingFrameTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShapeRepresentationTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/SquareTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-CircleTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-JDrawingFrameTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ShapeRepresentationTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-SquareTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TriangleTest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TriangleTest.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CircleTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/JDrawingFrameTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ShapeRepresentationTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/SquareTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TriangleTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/CommandInvoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/CommandInvoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/UndoShapeCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/command/UndoShapeCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,7 +144,7 @@
       <workItem from="1697994168765" duration="138000" />
       <workItem from="1697995355078" duration="1974000" />
       <workItem from="1698003060138" duration="242000" />
-      <workItem from="1699477375309" duration="271000" />
+      <workItem from="1699477375309" duration="1028000" />
     </task>
     <task id="LOCAL-00001" summary="Bug Sonar Fixed + dette tachnique 0">
       <created>1697979146464</created>
@@ -313,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697989555296</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Test">
+      <created>1699477816811</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699477816811</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +233,7 @@
     <MESSAGE value="Dependency JUnit added" />
     <MESSAGE value="Test 4%" />
     <MESSAGE value="Test 6%" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test 6%" />
+    <MESSAGE value="Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test" />
   </component>
 </project>

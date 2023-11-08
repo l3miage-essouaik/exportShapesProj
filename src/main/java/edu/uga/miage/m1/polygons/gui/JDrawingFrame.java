@@ -20,6 +20,7 @@ package edu.uga.miage.m1.polygons.gui;
  */
 import java.awt.*;
 import java.awt.event.*;
+import java.io.Serial;
 import java.util.logging.*;
 import java.io.FileWriter;
 import java.net.URL;
@@ -61,6 +62,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         SQUARE, TRIANGLE, CIRCLE
     }
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private final JToolBar mtoolbar;
@@ -75,7 +77,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private final List<SimpleShape> listOfShapes = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(JDrawingFrame.class.getName());
-    private transient List<Command> commandHistory = new ArrayList<>();
+    private transient final List<Command> commandHistory = new ArrayList<>();
 
     /**
      * Tracks buttons to manage the background.
