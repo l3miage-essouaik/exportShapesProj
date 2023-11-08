@@ -7,8 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
- class ShapeRepresentationTest {
+class ShapeRepresentationTest {
 
     @Test
     @DisplayName("Test JSONRepresentation Circle ")
@@ -19,11 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         visitor.visit(circle);
 
         String expected = """
-{
-    "type": "circle",
-    "x": 5,
-    "y": 10
-}""";
+                {
+                    "type": "circle",
+                    "x": 5,
+                    "y": 10
+                }""";
         System.out.println(expected);
         String actual = visitor.getRepresentation();
         System.out.println(actual);
@@ -39,15 +38,35 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         visitor.visit(triangle);
 
         String expected = """
-{
-    "type": "triangle",
-    "x": 5,
-    "y": 10
-}""";
+                {
+                    "type": "triangle",
+                    "x": 5,
+                    "y": 10
+                }""";
 
         String actual = visitor.getRepresentation();
         assertEquals(expected, actual);
     }
+
+    @Test
+    @DisplayName("Test JSONRepresentation square ")
+    void testJSONRepresentationSquare() {
+        Square square = new Square(30, 35);
+        JSonVisitor visitor = new JSonVisitor();
+
+        visitor.visit(square);
+
+        String expected = """
+                {
+                    "type": "square",
+                    "x": 5,
+                    "y": 10
+                }""";
+
+        String actual = visitor.getRepresentation();
+        assertEquals(expected, actual);
+    }
+
     @Test
     @DisplayName("Test visit Circle xml")
     void testXmlVisitCircle() {
@@ -56,10 +75,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
         visitor.visit(circle);
 
-        String expected = "<shape>"+
-                "<type>circle</type>"+
-                "<x>5</x>"+
-                "<y>10</y>"+
+        String expected = "<shape>" +
+                "<type>circle</type>" +
+                "<x>5</x>" +
+                "<y>10</y>" +
                 "</shape>";
         String actual = visitor.getRepresentation();
         System.out.println(expected);
@@ -70,15 +89,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     @Test
     @DisplayName("Test visit Square xml")
     void testXmlVisitSquare() {
-        Square square = new Square(30,35);
+        Square square = new Square(30, 35);
         XMLVisitor visitor = new XMLVisitor();
 
         visitor.visit(square);
 
-        String expected = "<shape>"+
-                "<type>square</type>"+
-                "<x>5</x>"+
-                "<y>10</y>"+
+        String expected = "<shape>" +
+                "<type>square</type>" +
+                "<x>5</x>" +
+                "<y>10</y>" +
                 "</shape>";
         String actual = visitor.getRepresentation();
         System.out.println(expected);
@@ -89,15 +108,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     @Test
     @DisplayName("Test visit Triangle xml")
     void testXmlVisitTriangle() {
-        Triangle triangle = new Triangle(30,35);
+        Triangle triangle = new Triangle(30, 35);
         XMLVisitor visitor = new XMLVisitor();
 
         visitor.visit(triangle);
 
-        String expected  = "<shape>"+
-                "<type>triangle</type>"+
-                "<x>5</x>"+
-                "<y>10</y>"+
+        String expected = "<shape>" +
+                "<type>triangle</type>" +
+                "<x>5</x>" +
+                "<y>10</y>" +
                 "</shape>";
         String actual = visitor.getRepresentation();
         System.out.println(expected);

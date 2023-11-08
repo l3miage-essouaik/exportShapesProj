@@ -6,12 +6,13 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
- *  @author <a href="mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
+ * @author <a href=
+ *         "mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
  *
  */
 public class GUIHelper {
-	
-	private GUIHelper(){
+
+	private GUIHelper() {
 	}
 
 	public static void showOnFrame(String frameName) {

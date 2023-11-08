@@ -57,7 +57,7 @@ import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
  */
 public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionListener, KeyListener {
 
-    private enum Shapes {
+    public enum Shapes {
         SQUARE, TRIANGLE, CIRCLE
     }
 
@@ -72,6 +72,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient JSonVisitor jsonVisitor;
     private final DrawingPanel mPanel;
     private final transient ActionListener mReusableActionListener = new ShapeActionListener();
+
     private final List<SimpleShape> listOfShapes = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(JDrawingFrame.class.getName());
     private transient List<Command> commandHistory = new ArrayList<>();
@@ -142,7 +143,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         ctrlZ.addActionListener(e -> undoCommandInvoker.undo());
         mtoolbar.add(ctrlZ);
 
-        //keyboardFocusManager pour savoir si les buttons sont préssés
+        // keyboardFocusManager pour savoir si les buttons sont préssés
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(a -> {
             if (a.getID() == KeyEvent.KEY_PRESSED
                     && a.getKeyCode() == KeyEvent.VK_Z
@@ -155,7 +156,11 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         addKeyListener(this);
     }
 
-    private void exportToXML() {
+    public List<SimpleShape> getListOfShapes() {
+        return listOfShapes;
+    }
+
+    public void exportToXML() {
         try (FileWriter writer = new FileWriter("dessin.xml")) {
             XMLOutputFactory factory = XMLOutputFactory.newInstance();
             XMLStreamWriter xmlWriter = factory.createXMLStreamWriter(writer);
@@ -179,8 +184,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
     }
 
-
-    private void exportToJson() {
+    public void exportToJson() {
         try (FileWriter writer = new FileWriter("dessin.json")) {
             writer.write("{\n\t\"shapes\": [\n\t");
             Iterator<SimpleShape> iterator = listOfShapes.iterator();
@@ -213,7 +217,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * @param shape The name of the injected <tt>SimpleShape</tt>.
      * @param icon  The icon associated with the injected <tt>SimpleShape</tt>.
      */
-    private void addShape(Shapes shape, ImageIcon icon) {
+    public void addShape(Shapes shape, ImageIcon icon) {
         JButton button = new JButton(icon);
         button.setBorderPainted(false);
         mButtons.put(shape, button);
@@ -368,7 +372,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         // empty pour le moment
     }
 
-
     public void undo() {
         if (!commandHistory.isEmpty() && !listOfShapes.isEmpty()) {
             commandHistory.remove(commandHistory.size() - 1);
@@ -376,7 +379,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
         }
 
-        //Redessiner tous les shapes sauf celle supprimer
+        // Redessiner tous les shapes sauf celle supprimer
         Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
         newGraph.setColor(Color.WHITE);
         newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
