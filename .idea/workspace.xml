@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="Clean code et Lambook">
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/DrawingPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/GUIHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$ShapeActionListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame$Shapes.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/JDrawingFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddCircleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddSquareCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/AddTriangleCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/Command.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/CommandInvoker.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/command/UndoShapeCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/circle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/json.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/square.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/triangle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/images/underc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/JSonVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitable.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/Visitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/persistence/XMLVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Circle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/SimpleShape.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Square.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/uga/miage/m1/polygons/gui/shapes/Triangle.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/jacoco.exec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/myproject_g2_5-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddCircleCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddCircleCommand.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddSquareCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddSquareCommand.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddTriangleCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/AddTriangleCommand.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/CommandInvoker.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/CommandInvoker.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/UndoShapeCommand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/UndoShapeCommand.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.command/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/JSonVisitor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/JSonVisitor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/XMLVisitor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/XMLVisitor.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.persistence/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Circle.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Square.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Square.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Triangle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/Triangle.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui.shapes/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/App.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/App.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/DrawingPanel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/DrawingPanel.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper$1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/GUIHelper.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame$ShapeActionListener.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame$Shapes.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/JDrawingFrame.java.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/edu.uga.miage.m1.polygons.gui/index.source.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchfc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchnc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/branchpc.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/bundle.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/class.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/down.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/greenbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/group.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/method.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/package.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/prettify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/redbar.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/report.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/session.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/sort.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/source.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-resources/up.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco-sessions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/jacoco/jacoco.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/.sonar_lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/sonar/report-task.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/CircleTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/DrawingPanelTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/JDrawingFrameTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/ShapeRepresentationTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/SquareTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-CircleTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-DrawingPanelTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-JDrawingFrameTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-ShapeRepresentationTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-SquareTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-TriangleTest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TriangleTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CircleTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DrawingPanelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/JDrawingFrameTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ShapeRepresentationTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/SquareTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/TriangleTest.class" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2WKt8EsuAuj2J26QoWgYEeyaAJ0" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mouad\OneDrive\Desktop\project_Pc\exportShapesProj\src\main\test\java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.DrawingPanelTest">
+    <configuration name="CircleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CircleTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DrawingPanelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DrawingPanelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="JDrawingFrameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="JDrawingFrameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SquareTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SquareTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TriangleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="myproject_g2_5" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TriangleTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.DrawingPanelTest" />
+        <item itemvalue="JUnit.TriangleTest" />
+        <item itemvalue="JUnit.SquareTest" />
+        <item itemvalue="JUnit.JDrawingFrameTest" />
+        <item itemvalue="JUnit.CircleTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="58f38770-c9b6-4e4e-8839-02b00bcd497a" name="Changes" comment="" />
+      <created>1696492941997</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696492941997</updated>
+      <workItem from="1696492946627" duration="2004000" />
+      <workItem from="1697972048801" duration="2215000" />
+      <workItem from="1697974414914" duration="459000" />
+      <workItem from="1697975497970" duration="8908000" />
+      <workItem from="1697984531307" duration="3524000" />
+      <workItem from="1697988099792" duration="168000" />
+      <workItem from="1697988285689" duration="703000" />
+      <workItem from="1697989012629" duration="1931000" />
+      <workItem from="1697994168765" duration="138000" />
+      <workItem from="1697995355078" duration="1974000" />
+      <workItem from="1698003060138" duration="242000" />
+      <workItem from="1699477375309" duration="1354000" />
+      <workItem from="1700083240932" duration="1414000" />
+    </task>
+    <task id="LOCAL-00001" summary="Bug Sonar Fixed + dette tachnique 0">
+      <created>1697979146464</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697979146464</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fix ExportXml bug">
+      <created>1697980408823</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1697980408823</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fix ExportXml bug">
+      <created>1697980902991</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1697980902991</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Control Z marche">
+      <created>1697983224224</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983224224</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Control Z marche">
+      <created>1697983656624</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697983656624</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dependency JUnit added">
+      <created>1697984820415</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697984820415</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Test 4%">
+      <created>1697988972380</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697988972380</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Test 6%">
+      <created>1697989555296</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697989555296</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Test">
+      <created>1699477816811</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1699477816811</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Clean code et Lambook">
+      <created>1699478471295</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1699478471295</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Clean code et Lambook">
+      <created>1699478516483</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1699478516483</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Bug Sonar Fixed + dette tachnique 0" />
+    <MESSAGE value="Fix ExportXml bug" />
+    <MESSAGE value="Control Z marche" />
+    <MESSAGE value="Dependency JUnit added" />
+    <MESSAGE value="Test 4%" />
+    <MESSAGE value="Test 6%" />
+    <MESSAGE value="Test" />
+    <MESSAGE value="Clean code et Lambook" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean code et Lambook" />
+  </component>
+</project>
