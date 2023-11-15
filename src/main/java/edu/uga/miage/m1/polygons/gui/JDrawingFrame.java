@@ -77,7 +77,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     private final List<SimpleShape> listOfShapes = new ArrayList<>();
     private static final Logger LOGGER = Logger.getLogger(JDrawingFrame.class.getName());
-    private transient final List<Command> commandHistory = new ArrayList<>();
+    private final transient List<Command> commandHistory = new ArrayList<>();
 
     /**
      * Tracks buttons to manage the background.
