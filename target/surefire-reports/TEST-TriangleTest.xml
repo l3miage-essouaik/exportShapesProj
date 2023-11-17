@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TriangleTest" time="0.016" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="D:\Developpement\miage\exportShapesProj\target\test-classes;D:\Developpement\miage\exportShapesProj\target\classes;C:\Users\khlil\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\khlil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\khlil\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\khlil\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\khlil\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\khlil\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\khlil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\khlil\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
+    <property name="sun.awt.enableExtraMouseButtons" value="true"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Paris"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="FR"/>
+    <property name="sun.boot.library.path" value="D:\Developpement\Java\jdk-17.0.6\bin"/>
+    <property name="sun.java.command" value="C:\Users\khlil\AppData\Local\Temp\surefire15059767943573171532\surefirebooter3285701370939164389.jar C:\Users\khlil\AppData\Local\Temp\surefire15059767943573171532 2023-11-17T20-35-01_097-jvmRun1 surefire15937248217867986349tmp surefire_04886051604079435987tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Developpement\miage\exportShapesProj\target\test-classes;D:\Developpement\miage\exportShapesProj\target\classes;C:\Users\khlil\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\khlil\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\khlil\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\khlil\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\khlil\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\khlil\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\khlil\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\khlil\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\khlil"/>
+    <property name="user.language" value="fr"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2023-01-17"/>
+    <property name="java.home" value="D:\Developpement\Java\jdk-17.0.6"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Developpement\miage\exportShapesProj"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\khlil\AppData\Local\Temp\surefire15059767943573171532\surefirebooter3285701370939164389.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.6+9-LTS-190"/>
+    <property name="user.name" value="khlil"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\khlil\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\khlil\AppData\Local\Temp\"/>
+    <property name="java.version" value="17.0.6"/>
+    <property name="user.dir" value="D:\Developpement\miage\exportShapesProj"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="D:\Developpement\Java\jdk-17.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\Développement\Git\cmd;D:\apache-maven-3.6.3-bin\apache-maven-3.6.3\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files\Symfony;D:\Developpement\nodejs;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files (x86)\scala\bin;C:\ProgramData\Microsoft\Windows\Start Menu\Programs\Python 2.7;D:\Developpement\Python;D:\Developpement\Python\Scripts;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\sbt\bin;C:\Program Files\aircrack-ng-1.7-win\bin;C:\Program Files\Docker\Docker\resources\bin;D:\Developpement\Mongo\MongoDB\Server\5.0\bin;D:\Developpement\nodejs\;D:\Developpement\Erlang OTP\erts-13.1.3\bin;C:\Program Files\swipl\bin;D:\Developpement\Git\cmd;D:\Developpement\use-6.0.0\bin;D:\Developpement\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;D:\Developpement\Java\jdk-17.0.6\bin;D:\Developpement\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;D:\Google\Chrome\Application;C:\Program Files\dotnet\;C:\composer;D:\Developpement\Java\jdk-17.0.6\bin;C:\Users\khlil\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\khlil\AppData\Roaming\Composer\vendor\bin;C:\Program Files\heroku\bin;C:\Users\khlil\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\sqlite3;D:\Developpement\Python;D:\Developpement\Python\Scripts;C:\Users\khlil\.dotnet\tools;C:\Users\khlil\AppData\Local\GitHubDesktop\bin;D:\Developpement\nodejs;C:\Users\khlil\AppData\Local\Coursier\data\bin;C:\Program Files (x86)\sbt\bin;C:\Users\khlil\AppData\Roaming\Reincubate\iPhone Backup Extractor;C:\MinGW\bin;D:\Developpement\Mongo\MongoDB\Server\5.0\bin;C:\Users\khlil\AppData\Roaming\npm;C:\Program Files\Erlang OTP\bin;D:\Developpement\use-6.0.0\bin;D:\Developpement\apache-maven-3.9.0-bin\apache-maven-3.9.0\bin;D:\Developpement\Git\cmd;D:\Developpement\IntelliJ IDEA Community Edition 2022.3.3\bin;C:\Users\khlil\AppData\Roaming\TinyTeX\bin\windows;D:\wamp64\bin\php\php8.1.13;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.6+9-LTS-190"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testAcceptJSON" classname="TriangleTest" time="0.001"/>
+  <testcase name="testAcceptXML" classname="TriangleTest" time="0.001"/>
+  <testcase name="testTriangleGetX" classname="TriangleTest" time="0.001"/>
+  <testcase name="testTriangleGetY" classname="TriangleTest" time="0"/>
+</testsuite>

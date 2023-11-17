@@ -75,4 +75,26 @@ public class Square implements SimpleShape, Visitable {
     public int getY() {
         return mY;
     }
+
+    @Override
+    public void setX(int x) {
+        this.mX = x;
+    }
+
+    @Override
+    public void setY(int y) {
+       this.mY = y;
+    }
+    @Override
+    public boolean contains(int x, int y) {
+        // Calculer le coin supérieur gauche et le coin inférieur droit du carré
+        int squareX = mX;
+        int squareY = mY;
+        int squareWidth = 50;
+        int squareHeight = 50;
+    
+        // Vérifier si les coordonnées (x, y) sont à l'intérieur du carré
+        return (x >= squareX && x <= squareX + squareWidth &&
+                y >= squareY && y <= squareY + squareHeight);
+    }
 }

@@ -1,4 +1,36 @@
 {
 	"shapes": [
-		]
+			{
+			"shape": 
+{
+    "type": "triangle",
+    "x": 242,
+    "y": 197
+}
+		},
+		{
+			"shape": 
+{
+    "type": "triangle",
+    "x": 149,
+    "y": 113
+}
+		},
+		{
+			"shape": 
+{
+    "type": "triangle",
+    "x": 291,
+    "y": 69
+}
+		},
+		{
+			"shape": 
+{
+    "type": "circle",
+    "x": 223,
+    "y": 108
+}
+		}
+	]
 }

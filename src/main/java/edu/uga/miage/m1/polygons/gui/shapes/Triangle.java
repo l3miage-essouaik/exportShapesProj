@@ -85,4 +85,35 @@ public class Triangle implements SimpleShape, Visitable {
     public int getY() {
         return mY;
     }
+
+    @Override
+    public void setX(int x) {
+        this.mX = x;
+    }
+
+    @Override
+    public void setY(int y) {
+       this.mY = y;
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        // Coordonnées des sommets du triangle
+        int x1 = mX + 25;
+        int y1 = mY;
+        int x2 = mX;
+        int y2 = mY + 50;
+        int x3 = mX + 50;
+        int y3 = mY + 50;
+    
+        // Calculer les aires des trois triangles formés par les points (x, y) et les sommets du triangle
+        double area = 0.5 * Math.abs(x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2));
+        double area1 = 0.5 * Math.abs(x * (y2 - y3) + x2 * (y3 - y) + x3 * (y - y2));
+        double area2 = 0.5 * Math.abs(x1 * (y - y3) + x * (y3 - y1) + x3 * (y1 - y));
+        double area3 = 0.5 * Math.abs(x1 * (y2 - y) + x2 * (y - y1) + x * (y1 - y2));
+    
+        // La somme des aires des triangles formés par (x, y) doit être égale à l'aire du triangle d'origine
+        return Math.abs(area1 + area2 + area3 - area) < 0.1; // Utilisez une petite marge pour traiter les erreurs d'arrondi
+    }
+    
 }

@@ -67,4 +67,27 @@ public class Circle implements SimpleShape, Visitable {
     public int getY() {
         return mY;
     }
+
+    @Override
+    public void setX(int x) {
+        this.mX = x;
+    }
+
+    @Override
+    public void setY(int y) {
+       this.mY = y;
+    }
+
+    @Override
+    public boolean contains(int x, int y) {
+        // Calculer le centre du cercle
+        int centerX = mX + 25;
+        int centerY = mY + 25;
+    
+        // Calculer la distance entre les coordonnées (x, y) et le centre du cercle
+        double distance = Math.sqrt(Math.pow(x - centerX, 2) + Math.pow(y - centerY, 2));
+    
+        // Vérifier si la distance est inférieure ou égale au rayon du cercle
+        return distance <= 25; // 25 est le rayon du cercle (demi-diamètre)
+    }
 }

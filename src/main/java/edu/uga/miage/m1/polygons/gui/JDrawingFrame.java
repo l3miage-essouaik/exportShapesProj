@@ -86,7 +86,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient Command undoCommand = new UndoShapeCommand(this);
 
     private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
-
+    private boolean moveModeEnabled = false;
+    private SimpleShape selectedShape = null;
     /**
      * Default constructor that populates the main window.
      * 
@@ -144,6 +145,14 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         JButton ctrlZ = new JButton("Revoke");
         ctrlZ.addActionListener(e -> undoCommandInvoker.undo());
         mtoolbar.add(ctrlZ);
+
+        JButton selectButton = new JButton("Select Shape");
+        selectButton.addActionListener(e -> enableSelectMode());
+        mtoolbar.add(selectButton);
+
+        JButton moveButton = new JButton("Move Shape");
+        moveButton.addActionListener(e -> enableMoveMode());
+        mtoolbar.add(moveButton);
 
         // keyboardFocusManager pour savoir si les buttons sont préssés
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(a -> {
@@ -241,31 +250,32 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     public void mouseClicked(MouseEvent evt) {
         if (mPanel.contains(evt.getX(), evt.getY())) {
-            Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
-            switch (mSelected) {
-                case CIRCLE:
-                    Circle crc = new Circle(evt.getX(), evt.getY());
-                    crc.draw(g2);
-                    Command addCircleCommand = new AddCircleCommand(crc, listOfShapes);
-                    addCircleCommand.execute();
-                    commandHistory.add(addCircleCommand);
-                    break;
-                case TRIANGLE:
-                    Triangle trg = new Triangle(evt.getX(), evt.getY());
-                    trg.draw(g2);
-                    Command addTriangleCommand = new AddTriangleCommand(trg, listOfShapes);
-                    addTriangleCommand.execute();
-                    commandHistory.add(addTriangleCommand);
-                    break;
-                case SQUARE:
-                    Square sqr = new Square(evt.getX(), evt.getY());
-                    sqr.draw(g2);
-                    Command addSquareCommand = new AddSquareCommand(sqr, listOfShapes);
-                    addSquareCommand.execute();
-                    commandHistory.add(addSquareCommand);
-                    break;
-                default:
-            }
+                Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
+                switch (mSelected) {
+                    case CIRCLE:
+                        Circle crc = new Circle(evt.getX(), evt.getY());
+                        crc.draw(g2);
+                        Command addCircleCommand = new AddCircleCommand(crc, listOfShapes);
+                        addCircleCommand.execute();
+                        commandHistory.add(addCircleCommand);
+                        break;
+                    case TRIANGLE:
+                        Triangle trg = new Triangle(evt.getX(), evt.getY());
+                        trg.draw(g2);
+                        Command addTriangleCommand = new AddTriangleCommand(trg, listOfShapes);
+                        addTriangleCommand.execute();
+                        commandHistory.add(addTriangleCommand);
+                        break;
+                    case SQUARE:
+                        Square sqr = new Square(evt.getX(), evt.getY());
+                        sqr.draw(g2);
+                        Command addSquareCommand = new AddSquareCommand(sqr, listOfShapes);
+                        addSquareCommand.execute();
+                        commandHistory.add(addSquareCommand);
+                        break;
+                    default:
+                } 
+            
         }
     }
 
@@ -295,7 +305,19 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * @param evt The associated mouse event.
      */
     public void mousePressed(MouseEvent evt) {
-        // empty pour le moment
+        if (moveModeEnabled) {
+            // Si le mode de déplacement est activé, déplacez la forme sélectionnée
+            moveSelectedShape(evt.getX(), evt.getY());
+        } else {
+            // Si le mode de déplacement n'est pas activé, vérifiez si le clic est à l'intérieur d'une forme
+            for (SimpleShape shape : listOfShapes) {
+                if (shape.contains(evt.getX(), evt.getY())) {
+                    selectedShape = shape;
+                    enableMoveMode(); // Active le mode de déplacement
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -390,5 +412,26 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
 
     }
+    private void enableMoveMode() {
+        moveModeEnabled = true;
+        mLabel.setText("Move the selected shape");
+    }
+
+    private void moveSelectedShape(int x, int y) {
+        if (selectedShape != null) {
+            selectedShape.setX(x);
+            selectedShape.setY(y);
+            mPanel.repaint();
+            moveModeEnabled = false;
+            mLabel.setText(" ");
+        }
+    }
+
+    private void enableSelectMode() {
+        moveModeEnabled = false; 
+        selectedShape = null;        
+        mLabel.setText("Select a shape");
+    }
+
 
 }
