@@ -25,6 +25,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
@@ -42,6 +44,8 @@ public class Triangle implements SimpleShape, Visitable {
 
     int mY;
     boolean shapeMoved;
+    public List<Integer> previousXPositions = new ArrayList<>();
+    public List<Integer> previousYPositions = new ArrayList<>();
 
     public Triangle(int x, int y) {
         mX = x - 25;
@@ -75,7 +79,6 @@ public class Triangle implements SimpleShape, Visitable {
 
     @Override
     public void accept(Visitor visitor) {
-        // aaa
         visitor.visit(this);
     }
 
@@ -96,14 +99,14 @@ public class Triangle implements SimpleShape, Visitable {
     }
 
     public void savePosition() {
-        previousXPositions.add(mX);
-        previousYPositions.add(mY);
+        this.previousXPositions.add(mX);
+        this.previousYPositions.add(mY);
     }
 
     public void restorePosition() {
         if (!previousXPositions.isEmpty() && !previousYPositions.isEmpty()) {
-            mX = previousXPositions.remove(previousXPositions.size() - 1);
-            mY = previousYPositions.remove(previousYPositions.size() - 1);
+            mX = this.previousXPositions.remove(previousXPositions.size() - 1);
+            mY = this.previousYPositions.remove(previousYPositions.size() - 1);
         }
     }
 }

@@ -24,6 +24,8 @@ import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
@@ -33,11 +35,13 @@ public class Circle implements SimpleShape, Visitable {
     int mX;
     int mY;
     boolean shapeMoved;
+<span class="fc" id="L38">    public List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L39">    public List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
 
-<span class="fc" id="L37">    public Circle(int x, int y) {</span>
-<span class="fc" id="L38">        mX = x - 25;</span>
-<span class="fc" id="L39">        mY = y - 25;</span>
-<span class="fc" id="L40">    }</span>
+<span class="fc" id="L41">    public Circle(int x, int y) {</span>
+<span class="fc" id="L42">        mX = x - 25;</span>
+<span class="fc" id="L43">        mY = y - 25;</span>
+<span class="fc" id="L44">    }</span>
 
     /**
      * Implements the &lt;tt&gt;SimpleShape.draw()&lt;/tt&gt; method for painting
@@ -46,46 +50,46 @@ public class Circle implements SimpleShape, Visitable {
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
-<span class="fc" id="L49">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
-<span class="fc" id="L50">        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float) mX + 50, mY, Color.WHITE);</span>
-<span class="fc" id="L51">        g2.setPaint(gradient);</span>
-<span class="fc" id="L52">        g2.fill(new Ellipse2D.Double(mX, mY, 50, 50));</span>
-<span class="fc" id="L53">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
-<span class="fc" id="L54">        g2.setColor(Color.black);</span>
-<span class="fc" id="L55">        g2.setStroke(wideStroke);</span>
-<span class="fc" id="L56">        g2.draw(new Ellipse2D.Double(mX, mY, 50, 50));</span>
+<span class="fc" id="L53">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
+<span class="fc" id="L54">        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float) mX + 50, mY, Color.WHITE);</span>
+<span class="fc" id="L55">        g2.setPaint(gradient);</span>
+<span class="fc" id="L56">        g2.fill(new Ellipse2D.Double(mX, mY, 50, 50));</span>
+<span class="fc" id="L57">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
+<span class="fc" id="L58">        g2.setColor(Color.black);</span>
+<span class="fc" id="L59">        g2.setStroke(wideStroke);</span>
+<span class="fc" id="L60">        g2.draw(new Ellipse2D.Double(mX, mY, 50, 50));</span>
 
-<span class="fc" id="L58">    }</span>
+<span class="fc" id="L62">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
-<span class="fc" id="L62">        visitor.visit(this);</span>
-<span class="fc" id="L63">    }</span>
+<span class="fc" id="L66">        visitor.visit(this);</span>
+<span class="fc" id="L67">    }</span>
 
     public int getX() {
-<span class="fc" id="L66">        return mX;</span>
+<span class="fc" id="L70">        return mX;</span>
     }
 
     public int getY() {
-<span class="fc" id="L70">        return mY;</span>
+<span class="fc" id="L74">        return mY;</span>
     }
 
     public void move(int x, int y) {
-<span class="nc" id="L74">        mX = x;</span>
-<span class="nc" id="L75">        mY = y;</span>
-<span class="nc" id="L76">        this.shapeMoved = true;</span>
-<span class="nc" id="L77">    }</span>
+<span class="nc" id="L78">        mX = x;</span>
+<span class="nc" id="L79">        mY = y;</span>
+<span class="nc" id="L80">        this.shapeMoved = true;</span>
+<span class="nc" id="L81">    }</span>
 
     public void savePosition() {
-<span class="nc" id="L80">        previousXPositions.add(mX);</span>
-<span class="nc" id="L81">        previousYPositions.add(mY);</span>
-<span class="nc" id="L82">    }</span>
+<span class="nc" id="L84">        this.previousXPositions.add(mX);</span>
+<span class="nc" id="L85">        this.previousYPositions.add(mY);</span>
+<span class="nc" id="L86">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L85" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L86">            mX = previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L87">            mY = previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="nc bnc" id="L89" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="nc" id="L90">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="nc" id="L91">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L89">    }</span>
+<span class="nc" id="L93">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

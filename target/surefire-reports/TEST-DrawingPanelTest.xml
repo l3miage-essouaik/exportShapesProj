@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="DrawingPanelTest" time="0.22" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="DrawingPanelTest" time="0.235" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\Mouad\AppData\Local\Temp\surefire16755006532983603554\surefirebooter13009266052800336722.jar C:\Users\Mouad\AppData\Local\Temp\surefire16755006532983603554 2023-11-18T02-45-19_320-jvmRun1 surefire6561902365771694014tmp surefire_010029544439715144845tmp"/>
+    <property name="sun.java.command" value="C:\Users\Mouad\AppData\Local\Temp\surefire18144109359650498123\surefirebooter9365076934782006107.jar C:\Users\Mouad\AppData\Local\Temp\surefire18144109359650498123 2023-11-18T14-40-35_114-jvmRun1 surefire16922629694151966648tmp surefire_013458296826573774584tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\test-classes;C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\classes;C:\Users\Mouad\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Mouad\AppData\Local\Temp\surefire16755006532983603554\surefirebooter13009266052800336722.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Mouad\AppData\Local\Temp\surefire18144109359650498123\surefirebooter9365076934782006107.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+9-LTS-190"/>
@@ -57,5 +57,5 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testPaintComponent" classname="DrawingPanelTest" time="0.203"/>
+  <testcase name="testPaintComponent" classname="DrawingPanelTest" time="0.232"/>
 </testsuite>

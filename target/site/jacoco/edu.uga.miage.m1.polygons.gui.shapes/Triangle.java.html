@@ -25,6 +25,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
@@ -42,11 +44,13 @@ public class Triangle implements SimpleShape, Visitable {
 
     int mY;
     boolean shapeMoved;
+<span class="fc" id="L47">    public List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L48">    public List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
 
-<span class="fc" id="L46">    public Triangle(int x, int y) {</span>
-<span class="fc" id="L47">        mX = x - 25;</span>
-<span class="fc" id="L48">        mY = y - 25;</span>
-<span class="fc" id="L49">    }</span>
+<span class="fc" id="L50">    public Triangle(int x, int y) {</span>
+<span class="fc" id="L51">        mX = x - 25;</span>
+<span class="fc" id="L52">        mY = y - 25;</span>
+<span class="fc" id="L53">    }</span>
 
     /**
      * Implements the &lt;tt&gt;SimpleShape.draw()&lt;/tt&gt; method for painting
@@ -55,56 +59,55 @@ public class Triangle implements SimpleShape, Visitable {
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
-<span class="nc" id="L58">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
-<span class="nc" id="L59">        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float) mX + 50, mY, Color.WHITE);</span>
-<span class="nc" id="L60">        g2.setPaint(gradient);</span>
-<span class="nc" id="L61">        float[] xcoords = { mX + 25, mX, mX + 50 };</span>
-<span class="nc" id="L62">        float[] ycoords = { mY, mY + 50, mY + 50 };</span>
-<span class="nc" id="L63">        GeneralPath polygon = new GeneralPath(Path2D.WIND_EVEN_ODD, xcoords.length);</span>
-<span class="nc" id="L64">        polygon.moveTo((float) mX + 25, mY);</span>
-<span class="nc bnc" id="L65" title="All 2 branches missed.">        for (int i = 0; i &lt; xcoords.length; i++) {</span>
-<span class="nc" id="L66">            polygon.lineTo(xcoords[i], ycoords[i]);</span>
+<span class="nc" id="L62">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
+<span class="nc" id="L63">        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float) mX + 50, mY, Color.WHITE);</span>
+<span class="nc" id="L64">        g2.setPaint(gradient);</span>
+<span class="nc" id="L65">        float[] xcoords = { mX + 25, mX, mX + 50 };</span>
+<span class="nc" id="L66">        float[] ycoords = { mY, mY + 50, mY + 50 };</span>
+<span class="nc" id="L67">        GeneralPath polygon = new GeneralPath(Path2D.WIND_EVEN_ODD, xcoords.length);</span>
+<span class="nc" id="L68">        polygon.moveTo((float) mX + 25, mY);</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">        for (int i = 0; i &lt; xcoords.length; i++) {</span>
+<span class="nc" id="L70">            polygon.lineTo(xcoords[i], ycoords[i]);</span>
         }
-<span class="nc" id="L68">        polygon.closePath();</span>
-<span class="nc" id="L69">        g2.fill(polygon);</span>
-<span class="nc" id="L70">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
-<span class="nc" id="L71">        g2.setColor(Color.black);</span>
-<span class="nc" id="L72">        g2.setStroke(wideStroke);</span>
-<span class="nc" id="L73">        g2.draw(polygon);</span>
-<span class="nc" id="L74">    }</span>
+<span class="nc" id="L72">        polygon.closePath();</span>
+<span class="nc" id="L73">        g2.fill(polygon);</span>
+<span class="nc" id="L74">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
+<span class="nc" id="L75">        g2.setColor(Color.black);</span>
+<span class="nc" id="L76">        g2.setStroke(wideStroke);</span>
+<span class="nc" id="L77">        g2.draw(polygon);</span>
+<span class="nc" id="L78">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
-        // aaa
-<span class="fc" id="L79">        visitor.visit(this);</span>
-<span class="fc" id="L80">    }</span>
+<span class="fc" id="L82">        visitor.visit(this);</span>
+<span class="fc" id="L83">    }</span>
 
     @Override
     public int getX() {
-<span class="fc" id="L84">        return mX;</span>
+<span class="fc" id="L87">        return mX;</span>
     }
 
     @Override
     public int getY() {
-<span class="fc" id="L89">        return mY;</span>
+<span class="fc" id="L92">        return mY;</span>
     }
 
     public void move(int x, int y) {
-<span class="nc" id="L93">        mX = x;</span>
-<span class="nc" id="L94">        mY = y;</span>
-<span class="nc" id="L95">        this.shapeMoved = true;</span>
-<span class="nc" id="L96">    }</span>
+<span class="nc" id="L96">        mX = x;</span>
+<span class="nc" id="L97">        mY = y;</span>
+<span class="nc" id="L98">        this.shapeMoved = true;</span>
+<span class="nc" id="L99">    }</span>
 
     public void savePosition() {
-<span class="nc" id="L99">        previousXPositions.add(mX);</span>
-<span class="nc" id="L100">        previousYPositions.add(mY);</span>
-<span class="nc" id="L101">    }</span>
+<span class="nc" id="L102">        this.previousXPositions.add(mX);</span>
+<span class="nc" id="L103">        this.previousYPositions.add(mY);</span>
+<span class="nc" id="L104">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L104" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L105">            mX = previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L106">            mY = previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="nc bnc" id="L107" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="nc" id="L108">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="nc" id="L109">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L108">    }</span>
+<span class="nc" id="L111">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

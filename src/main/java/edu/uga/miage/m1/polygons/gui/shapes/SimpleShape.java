@@ -28,10 +28,10 @@ public interface SimpleShape {
 
     void move(int x, int y);
 
+    void savePosition();
+
     List<Integer> previousXPositions = new ArrayList<>();
     List<Integer> previousYPositions = new ArrayList<>();
-
-    void savePosition();
 
     void restorePosition();
 }

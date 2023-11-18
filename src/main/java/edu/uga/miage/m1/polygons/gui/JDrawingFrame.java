@@ -88,7 +88,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
     private SimpleShape selectedShape;
     private boolean shapeMoved;
-    private SimpleShape lastSelectedShape;
+    private List<SimpleShape> lastSelectedShape = new ArrayList<>();
 
     /**
      * Default constructor that populates the main window.
@@ -305,17 +305,16 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         int mouseX = evt.getX();
         int mouseY = evt.getY();
 
-        // Vérifier si la souris est sur une forme existante
         for (SimpleShape shape : listOfShapes) {
             int shapeX = shape.getX();
             int shapeY = shape.getY();
 
-            // Vérifier si la souris est à l'intérieur de la forme
             if (mouseX >= shapeX && mouseX <= (shapeX + 50) && mouseY >= shapeY && mouseY <= (shapeY + 50)) {
                 selectedShape = shape;
-                lastSelectedShape = shape;
-                lastSelectedShape.savePosition();
-                break; // Sortir de la boucle si la forme est trouvée
+                shape.savePosition();
+                lastSelectedShape.add(shape);
+                System.out.println(lastSelectedShape);
+                break; //
             }
         }
     }
@@ -407,29 +406,49 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     }
 
     public void undo() {
-        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty()
-                && (this.shapeMoved == false || (this.lastSelectedShape.previousXPositions.size() == 0
-                        && this.lastSelectedShape.previousYPositions.size() == 0))) {
+        SimpleShape shape;
+        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty() && this.lastSelectedShape.size() == 0) {
             commandHistory.remove(commandHistory.size() - 1);
             listOfShapes.remove(listOfShapes.size() - 1);
+        } else if (this.lastSelectedShape.size() > 0) {
+            // get last shape dans la liste des selected
+            shape = lastSelectedShape.get(lastSelectedShape.size() - 1);
 
-        } else if (this.shapeMoved == true && this.lastSelectedShape.previousXPositions.size() > 0
-                && this.lastSelectedShape.previousYPositions.size() > 1) {
-            this.lastSelectedShape.restorePosition();
-            repaint();
-        } else {
-            if (lastSelectedShape != null) {
-                lastSelectedShape.restorePosition();
+            if (shape instanceof Circle) {
+                Circle c = (Circle) shape;
+                c.restorePosition();
                 repaint();
+
+                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                    lastSelectedShape.remove(c);
+                }
+            } else if (shape instanceof Triangle) {
+                Triangle c = (Triangle) shape;
+                c.restorePosition();
+                repaint();
+
+                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                    lastSelectedShape.remove(c);
+                }
+
+            } else if (shape instanceof Square) {
+                Square c = (Square) shape;
+                c.restorePosition();
+                repaint();
+
+                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                    lastSelectedShape.remove(c);
+                }
             }
+
         }
 
         // Redessiner tous les shapes sauf celle supprimer
         Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
         newGraph.setColor(Color.WHITE);
         newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
-        for (SimpleShape shape : listOfShapes) {
-            shape.draw(newGraph);
+        for (SimpleShape s : listOfShapes) {
+            s.draw(newGraph);
         }
 
     }
