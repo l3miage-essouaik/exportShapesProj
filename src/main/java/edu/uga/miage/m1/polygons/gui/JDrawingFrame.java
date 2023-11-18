@@ -86,6 +86,9 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient Command undoCommand = new UndoShapeCommand(this);
 
     private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
+    private SimpleShape selectedShape;
+    private boolean shapeMoved;
+    private SimpleShape lastSelectedShape;
 
     /**
      * Default constructor that populates the main window.
@@ -249,6 +252,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                     Command addCircleCommand = new AddCircleCommand(crc, listOfShapes);
                     addCircleCommand.execute();
                     commandHistory.add(addCircleCommand);
+                    crc.savePosition();
                     break;
                 case TRIANGLE:
                     Triangle trg = new Triangle(evt.getX(), evt.getY());
@@ -256,6 +260,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                     Command addTriangleCommand = new AddTriangleCommand(trg, listOfShapes);
                     addTriangleCommand.execute();
                     commandHistory.add(addTriangleCommand);
+                    trg.savePosition();
                     break;
                 case SQUARE:
                     Square sqr = new Square(evt.getX(), evt.getY());
@@ -263,6 +268,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                     Command addSquareCommand = new AddSquareCommand(sqr, listOfShapes);
                     addSquareCommand.execute();
                     commandHistory.add(addSquareCommand);
+                    sqr.savePosition();
                     break;
                 default:
             }
@@ -294,8 +300,24 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * 
      * @param evt The associated mouse event.
      */
+    @Override
     public void mousePressed(MouseEvent evt) {
-        // empty pour le moment
+        int mouseX = evt.getX();
+        int mouseY = evt.getY();
+
+        // Vérifier si la souris est sur une forme existante
+        for (SimpleShape shape : listOfShapes) {
+            int shapeX = shape.getX();
+            int shapeY = shape.getY();
+
+            // Vérifier si la souris est à l'intérieur de la forme
+            if (mouseX >= shapeX && mouseX <= (shapeX + 50) && mouseY >= shapeY && mouseY <= (shapeY + 50)) {
+                selectedShape = shape;
+                lastSelectedShape = shape;
+                lastSelectedShape.savePosition();
+                break; // Sortir de la boucle si la forme est trouvée
+            }
+        }
     }
 
     /**
@@ -304,8 +326,9 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * 
      * @param evt The associated mouse event.
      */
+    @Override
     public void mouseReleased(MouseEvent evt) {
-        // empty pour le moment
+        selectedShape = null;
     }
 
     /**
@@ -314,9 +337,18 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * 
      * @param evt The associated mouse event.
      */
+    @Override
     public void mouseDragged(MouseEvent evt) {
-        // empty pour le moment
+        if (selectedShape != null) {
+            int newX = evt.getX() - 25; // Mettre à jour la nouvelle position en fonction du déplacement de la souris
+            int newY = evt.getY() - 25;
 
+            // Mettre à jour la position de la forme sélectionnée
+            selectedShape.move(newX, newY);
+            this.shapeMoved = true;
+            repaint(); // Redessiner pour afficher la forme à sa nouvelle position
+
+        }
     }
 
     /**
@@ -375,10 +407,21 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     }
 
     public void undo() {
-        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty()) {
+        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty()
+                && (this.shapeMoved == false || (this.lastSelectedShape.previousXPositions.size() == 0
+                        && this.lastSelectedShape.previousYPositions.size() == 0))) {
             commandHistory.remove(commandHistory.size() - 1);
             listOfShapes.remove(listOfShapes.size() - 1);
 
+        } else if (this.shapeMoved == true && this.lastSelectedShape.previousXPositions.size() > 0
+                && this.lastSelectedShape.previousYPositions.size() > 1) {
+            this.lastSelectedShape.restorePosition();
+            repaint();
+        } else {
+            if (lastSelectedShape != null) {
+                lastSelectedShape.restorePosition();
+                repaint();
+            }
         }
 
         // Redessiner tous les shapes sauf celle supprimer

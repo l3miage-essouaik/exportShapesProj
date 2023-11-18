@@ -33,13 +33,15 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
  * This inner class implements the triangle <tt>SimpleShape</tt> service.
  * It simply provides a <tt>draw()</tt> that paints a triangle.
  *
- * @author <a href="mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
+ * @author <a href=
+ *         "mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
  */
 public class Triangle implements SimpleShape, Visitable {
 
     int mX;
 
     int mY;
+    boolean shapeMoved;
 
     public Triangle(int x, int y) {
         mX = x - 25;
@@ -49,11 +51,12 @@ public class Triangle implements SimpleShape, Visitable {
     /**
      * Implements the <tt>SimpleShape.draw()</tt> method for painting
      * the shape.
+     * 
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float)mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float) mX + 50, mY, Color.WHITE);
         g2.setPaint(gradient);
         float[] xcoords = { mX + 25, mX, mX + 50 };
         float[] ycoords = { mY, mY + 50, mY + 50 };
@@ -84,5 +87,23 @@ public class Triangle implements SimpleShape, Visitable {
     @Override
     public int getY() {
         return mY;
+    }
+
+    public void move(int x, int y) {
+        mX = x;
+        mY = y;
+        this.shapeMoved = true;
+    }
+
+    public void savePosition() {
+        previousXPositions.add(mX);
+        previousYPositions.add(mY);
+    }
+
+    public void restorePosition() {
+        if (!previousXPositions.isEmpty() && !previousYPositions.isEmpty()) {
+            mX = previousXPositions.remove(previousXPositions.size() - 1);
+            mY = previousYPositions.remove(previousYPositions.size() - 1);
+        }
     }
 }

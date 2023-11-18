@@ -24,15 +24,15 @@ import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.geom.Ellipse2D;
+
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
-
 
 public class Circle implements SimpleShape, Visitable {
 
     int mX;
-
     int mY;
+    boolean shapeMoved;
 
     public Circle(int x, int y) {
         mX = x - 25;
@@ -42,17 +42,19 @@ public class Circle implements SimpleShape, Visitable {
     /**
      * Implements the <tt>SimpleShape.draw()</tt> method for painting
      * the shape.
+     * 
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float)mX + 50, mY, Color.WHITE);
+        GradientPaint gradient = new GradientPaint(mX, mY, Color.RED, (float) mX + 50, mY, Color.WHITE);
         g2.setPaint(gradient);
         g2.fill(new Ellipse2D.Double(mX, mY, 50, 50));
         BasicStroke wideStroke = new BasicStroke(2.0f);
         g2.setColor(Color.black);
         g2.setStroke(wideStroke);
         g2.draw(new Ellipse2D.Double(mX, mY, 50, 50));
+
     }
 
     @Override
@@ -66,5 +68,23 @@ public class Circle implements SimpleShape, Visitable {
 
     public int getY() {
         return mY;
+    }
+
+    public void move(int x, int y) {
+        mX = x;
+        mY = y;
+        this.shapeMoved = true;
+    }
+
+    public void savePosition() {
+        previousXPositions.add(mX);
+        previousYPositions.add(mY);
+    }
+
+    public void restorePosition() {
+        if (!previousXPositions.isEmpty() && !previousYPositions.isEmpty()) {
+            mX = previousXPositions.remove(previousXPositions.size() - 1);
+            mY = previousYPositions.remove(previousYPositions.size() - 1);
+        }
     }
 }
