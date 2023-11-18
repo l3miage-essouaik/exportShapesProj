@@ -34,6 +34,11 @@
 				<version>1.18.26</version>
 				<scope>provided</scope>
 			</dependency>
+			<dependency>
+				<groupId>edu.uga.miage.m1</groupId>
+				<artifactId>edu.uga.singleshape</artifactId>
+				<version>1.0.1</version>
+			   </dependency>
 	</dependencies>
   	<build>
 		<plugins>

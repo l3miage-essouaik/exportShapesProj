@@ -44,6 +44,7 @@ import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
+import edu.uga.miage.m1.polygons.gui.shapes.Cube;
 import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
@@ -59,7 +60,7 @@ import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionListener, KeyListener {
 
     public enum Shapes {
-        SQUARE, TRIANGLE, CIRCLE
+        SQUARE, TRIANGLE, CIRCLE, CUBE
     }
 
     @Serial
@@ -130,6 +131,11 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
             addShape(Shapes.CIRCLE, new ImageIcon(circleImageUrl));
         }
 
+        // Cube
+        URL cubeImageUrl = getClass().getResource("images/underc.png");
+        if (cubeImageUrl != null) {
+            addShape(Shapes.CUBE, new ImageIcon(cubeImageUrl));
+        }
         setPreferredSize(new Dimension(450, 450));
         jsonVisitor = new JSonVisitor();
         xmlVisitor = new XMLVisitor();
@@ -270,6 +276,14 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                     commandHistory.add(addSquareCommand);
                     sqr.savePosition();
                     break;
+                case CUBE:
+                    Cube cbr = new Cube(evt.getX(), evt.getY());
+                    cbr.draw(g2);
+                    Command addCubeCommand = new AddCubeCommand(cbr, listOfShapes);
+                    addCubeCommand.execute();
+                    commandHistory.add(addCubeCommand);
+                    cbr.savePosition();
+                    break;
                 default:
             }
         }
@@ -405,6 +419,16 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         // empty pour le moment
     }
 
+    @Override
+    public void paintComponents(Graphics g) {
+        Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
+        newGraph.setColor(Color.WHITE);
+        newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
+        for (SimpleShape simpleShape : listOfShapes) {
+            simpleShape.draw((Graphics2D) this.mPanel.getGraphics());
+        }
+    }
+
     public void undo() {
         SimpleShape shape;
         if (!commandHistory.isEmpty() && !listOfShapes.isEmpty() && this.lastSelectedShape.size() == 0) {
@@ -439,17 +463,20 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
                 if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
                     lastSelectedShape.remove(c);
                 }
+            } else if (shape instanceof Cube) {
+                Cube c = (Cube) shape;
+                c.restorePosition();
+                repaint();
+
+                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                    lastSelectedShape.remove(c);
+                }
             }
 
         }
 
         // Redessiner tous les shapes sauf celle supprimer
-        Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();
-        newGraph.setColor(Color.WHITE);
-        newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
-        for (SimpleShape s : listOfShapes) {
-            s.draw(newGraph);
-        }
+        paintComponents(getGraphics());
 
     }
 
