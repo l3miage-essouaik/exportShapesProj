@@ -2,6 +2,8 @@ package edu.uga.miage.m1.polygons.gui.persistence;
 
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import edu.uga.miage.m1.polygons.gui.shapes.Cube;
+import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
+import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import lombok.Getter;
@@ -21,6 +23,36 @@ public class XMLVisitor implements Visitor {
     public XMLVisitor() {
         // empty pour le moment
 
+    }
+
+    @Override
+    public void visit(GroupeShape groupeShape) {
+        StringBuilder representation2 = new StringBuilder();
+        representation2.append("{\n")
+                .append("    \"type\": \"groupeShape\",\n")
+                .append("    \"shapes\": [\n");
+
+        for (SimpleShape g : groupeShape.shapesGroupe) {
+            String gString = "";
+            if (g instanceof Circle)
+                gString = "circle";
+            else if (g instanceof Triangle)
+                gString = "triangle";
+
+            else if (g instanceof Cube)
+                gString = "cube";
+            if (g instanceof Square)
+                gString = "square";
+
+            representation2.append("        ").append(generateShapeXML(gString, g.getX(), g.getY())).append(",\n");
+        }
+        if (!groupeShape.shapesGroupe.isEmpty()) {
+            representation2.deleteCharAt(representation2.length() - 2);
+        }
+        representation2.append("    ]\n")
+                .append("}");
+
+        this.representation = representation2.toString();
     }
 
     @Override

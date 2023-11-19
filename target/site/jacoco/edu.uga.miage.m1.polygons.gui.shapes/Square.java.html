@@ -37,19 +37,26 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
  * @author &lt;a href=
  *         &quot;mailto:christophe.saint-marcel@univ-grenoble-alpes.fr&quot;&gt;Christophe&lt;/a&gt;
  */
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+<span class="nc" id="L44">@Setter</span>
 public class Square implements SimpleShape, Visitable {
 
-    int mX;
+<span class="nc" id="L47">    int mX;</span>
 
-    int mY;
-    boolean shapeMoved;
-<span class="fc" id="L46">    public List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L47">    public List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L49">    int mY;</span>
+<span class="nc" id="L50">    boolean shapeMoved;</span>
+<span class="nc" id="L51">    int lastX;</span>
+<span class="nc" id="L52">    int lastY;</span>
+<span class="pc" id="L53">    private List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L54">    private List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
 
-<span class="fc" id="L49">    public Square(int x, int y) {</span>
-<span class="fc" id="L50">        mX = x - 25;</span>
-<span class="fc" id="L51">        mY = y - 25;</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L56">    public Square(int x, int y) {</span>
+<span class="fc" id="L57">        mX = x - 25;</span>
+<span class="fc" id="L58">        mY = y - 25;</span>
+<span class="fc" id="L59">    }</span>
 
     /**
      * Implements the &lt;tt&gt;SimpleShape.draw()&lt;/tt&gt; method for painting
@@ -58,54 +65,60 @@ public class Square implements SimpleShape, Visitable {
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
-<span class="nc" id="L61">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
-<span class="nc" id="L62">        GradientPaint gradient = new GradientPaint(mX, mY, Color.BLUE, (float) mX + 50, mY, Color.WHITE);</span>
-<span class="nc" id="L63">        g2.setPaint(gradient);</span>
-<span class="nc" id="L64">        g2.fill(new Rectangle2D.Double(mX, mY, 50, 50));</span>
-<span class="nc" id="L65">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
-<span class="nc" id="L66">        g2.setColor(Color.black);</span>
-<span class="nc" id="L67">        g2.setStroke(wideStroke);</span>
-<span class="nc" id="L68">        g2.draw(new Rectangle2D.Double(mX, mY, 50, 50));</span>
-<span class="nc" id="L69">    }</span>
+<span class="nc" id="L68">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
+<span class="nc" id="L69">        GradientPaint gradient = new GradientPaint(mX, mY, Color.BLUE, (float) mX + 50, mY, Color.WHITE);</span>
+<span class="nc" id="L70">        g2.setPaint(gradient);</span>
+<span class="nc" id="L71">        g2.fill(new Rectangle2D.Double(mX, mY, 50, 50));</span>
+<span class="nc" id="L72">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
+<span class="nc" id="L73">        g2.setColor(Color.black);</span>
+<span class="nc" id="L74">        g2.setStroke(wideStroke);</span>
+<span class="nc" id="L75">        g2.draw(new Rectangle2D.Double(mX, mY, 50, 50));</span>
+<span class="nc" id="L76">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
         // aaa
-<span class="fc" id="L74">        visitor.visit(this);</span>
-<span class="fc" id="L75">    }</span>
+<span class="fc" id="L81">        visitor.visit(this);</span>
+<span class="fc" id="L82">    }</span>
 
     @Override
     public int getX() {
-<span class="fc" id="L79">        return mX;</span>
+<span class="fc" id="L86">        return mX;</span>
     }
 
     @Override
     public int getY() {
-<span class="fc" id="L84">        return mY;</span>
+<span class="fc" id="L91">        return mY;</span>
     }
 
     public void move(int x, int y) {
-<span class="nc" id="L88">        mX = x;</span>
-<span class="nc" id="L89">        mY = y;</span>
-<span class="nc" id="L90">        this.shapeMoved = true;</span>
-<span class="nc" id="L91">    }</span>
+<span class="nc" id="L95">        mX = x;</span>
+<span class="nc" id="L96">        mY = y;</span>
+<span class="nc" id="L97">        this.shapeMoved = true;</span>
+<span class="nc" id="L98">    }</span>
 
     @Override
     public boolean contains(int x, int y) {
-<span class="nc" id="L95">        Rectangle2D carre = new Rectangle2D.Double(mX, mY, 50, 50);</span>
-<span class="nc" id="L96">        return carre.contains(x, y);</span>
+<span class="nc" id="L102">        Rectangle2D carre = new Rectangle2D.Double(mX, mY, 50, 50);</span>
+<span class="nc" id="L103">        return carre.contains(x, y);</span>
     }
 
     public void savePosition() {
-<span class="nc" id="L100">        this.previousXPositions.add(mX);</span>
-<span class="nc" id="L101">        this.previousYPositions.add(mY);</span>
-<span class="nc" id="L102">    }</span>
+<span class="nc" id="L107">        this.previousXPositions.add(mX);</span>
+<span class="nc" id="L108">        this.previousYPositions.add(mY);</span>
+<span class="nc" id="L109">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L105" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L106">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L107">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="nc bnc" id="L112" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="nc" id="L113">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="nc" id="L114">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L109">    }</span>
+<span class="nc" id="L116">    }</span>
+
+    @Override
+    public void setLastXY(int x, int y) {
+<span class="nc" id="L120">        lastX = x;</span>
+<span class="nc" id="L121">        lastY = y;</span>
+<span class="nc" id="L122">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

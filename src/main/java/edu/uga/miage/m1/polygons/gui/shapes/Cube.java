@@ -7,15 +7,21 @@ import java.util.List;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 import edu.uga.singleshape.CubePanel;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Cube implements SimpleShape, Visitable {
 
     int mX;
 
     int mY;
+    int lastX;
+    int lastY;
     boolean shapeMoved;
-    public List<Integer> previousXPositions = new ArrayList<>();
-    public List<Integer> previousYPositions = new ArrayList<>();
+    private List<Integer> previousXPositions = new ArrayList<>();
+    private List<Integer> previousYPositions = new ArrayList<>();
 
     public Cube(int x, int y) {
         mX = x - 25;
@@ -69,4 +75,11 @@ public class Cube implements SimpleShape, Visitable {
             mY = this.previousYPositions.remove(previousYPositions.size() - 1);
         }
     }
+
+    @Override
+    public void setLastXY(int x, int y) {
+        lastX = x;
+        lastY = y;
+    }
+
 }

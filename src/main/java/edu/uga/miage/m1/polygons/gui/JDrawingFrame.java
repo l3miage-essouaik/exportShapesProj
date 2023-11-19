@@ -34,6 +34,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
@@ -45,6 +46,7 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import edu.uga.miage.m1.polygons.gui.shapes.Cube;
+import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
 import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
@@ -87,11 +89,12 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient Command undoCommand = new UndoShapeCommand(this);
 
     private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
-    private SimpleShape selectedShape;
-    private boolean shapeMoved;
-    private List<SimpleShape> lastSelectedShape = new ArrayList<>();
-    private boolean selectShapeMultiple = false;
-    private List<SimpleShape> selectedShapes = new ArrayList<>();
+    private transient SimpleShape selectedShape;
+    private transient List<SimpleShape> lastSelectedShape = new ArrayList<>();
+    private transient boolean selectShapeMultiple = false;
+    private transient List<SimpleShape> selectedShapes = new ArrayList<>();
+    private transient JToggleButton selectButton;
+    private GroupeShape groupe = null;
 
     /**
      * Default constructor that populates the main window.
@@ -140,11 +143,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
 
         // select button
-        JButton selectButton = new JButton("Select");
-        selectButton.addActionListener(e -> {
-            selectShapeMultiple = !selectShapeMultiple;
-        });
+        selectButton = new JToggleButton("Select");
+        selectButton.addActionListener(input -> selectGroup());
         mtoolbar.add(selectButton);
+        mtoolbar.validate();
 
         setPreferredSize(new Dimension(450, 450));
         jsonVisitor = new JSonVisitor();
@@ -175,6 +177,12 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         });
 
         addKeyListener(this);
+    }
+
+    private void selectGroup() {
+        if (selectButton.isSelected()) {
+            this.groupe = new GroupeShape(0, 0, new ArrayList<SimpleShape>());
+        }
     }
 
     public List<SimpleShape> getListOfShapes() {
@@ -266,27 +274,46 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     public void mouseClicked(MouseEvent evt) {
         if (mPanel.contains(evt.getX(), evt.getY())) {
-            Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
-            SimpleShape simpleShape = null;
-            switch (mSelected) {
-                case CIRCLE:
-                    simpleShape = new Circle(evt.getX(), evt.getY());
+            if (selectButton.isSelected()) {
+                for (int i = listOfShapes.size() - 1; i >= 0; i--) {
+                    SimpleShape shape = listOfShapes.get(i);
+                    if ((shape.getX() <= evt.getX() && evt.getX() <= shape.getX() + 50) &&
+                            (shape.getY() <= evt.getY() && evt.getY() <= shape.getY() + 50)) {
+                        selectedShape = shape;
+                        if (groupe.shapesGroupe.isEmpty()) {
+                            groupe.setXandY(selectedShape.getX(), selectedShape.getY());
+                        }
+                        selectedShape.setLastXY(selectedShape.getX() - groupe.getX(),
+                                selectedShape.getY() - groupe.getY());
+                        groupe.shapesGroupe.add(selectedShape);
+                        System.out.println("Shape add to group" + selectedShape);
+                        break;
+                    }
+                }
+            } else if (!selectButton.isSelected()) {
+                Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
+                SimpleShape simpleShape = null;
+                switch (mSelected) {
+                    case CIRCLE:
+                        simpleShape = new Circle(evt.getX(), evt.getY());
 
-                    break;
-                case TRIANGLE:
-                    simpleShape = new Triangle(evt.getX(), evt.getY());
-                    break;
-                case SQUARE:
-                    simpleShape = new Square(evt.getX(), evt.getY());
-                    break;
-                case CUBE:
-                    simpleShape = new Cube(evt.getX(), evt.getY());
-                    break;
-                default:
+                        break;
+                    case TRIANGLE:
+                        simpleShape = new Triangle(evt.getX(), evt.getY());
+                        break;
+                    case SQUARE:
+                        simpleShape = new Square(evt.getX(), evt.getY());
+                        break;
+                    case CUBE:
+                        simpleShape = new Cube(evt.getX(), evt.getY());
+                        break;
+                    default:
+                }
+                if (simpleShape != null) {
+                    executeAddShape(g2, simpleShape, listOfShapes);
+                }
             }
-            if (simpleShape != null) {
-                executeAddShape(g2, simpleShape, listOfShapes);
-            }
+
         }
     }
 
@@ -343,11 +370,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
     }
 
-    private boolean isMouseInsideShape(int x, int y, SimpleShape shape) {
-        // Implémentation pour vérifier si le clic est à l'intérieur de la forme
-        return shape.contains(x, y); // À adapter selon vos types de formes
-    }
-
     /**
      * Implements method for the <tt>MouseListener</tt> interface to complete
      * shape dragging.
@@ -368,13 +390,14 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     @Override
     public void mouseDragged(MouseEvent evt) {
-
         if (selectedShape != null) {
             int newX = evt.getX() - 25;
             int newY = evt.getY() - 25;
 
             selectedShape.move(newX, newY);
-            this.shapeMoved = true;
+            if (selectButton.isSelected()) {
+                groupe.moveGroupe(newX, newY);
+            }
             repaint();
         }
     }
@@ -446,44 +469,40 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
     public void undoShape() {
         SimpleShape shape;
-        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty() && this.lastSelectedShape.size() == 0) {
+        if (!commandHistory.isEmpty() && !listOfShapes.isEmpty() && this.lastSelectedShape.isEmpty()) {
             commandHistory.remove(commandHistory.size() - 1);
             listOfShapes.remove(listOfShapes.size() - 1);
-        } else if (this.lastSelectedShape.size() > 0) {
+        } else if (!this.lastSelectedShape.isEmpty()) {
             // get last shape dans la liste des selected
             shape = lastSelectedShape.get(lastSelectedShape.size() - 1);
 
-            if (shape instanceof Circle) {
-                Circle c = (Circle) shape;
+            if (shape instanceof Circle c) {
                 c.restorePosition();
                 repaint();
 
-                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
                     lastSelectedShape.remove(c);
                 }
-            } else if (shape instanceof Triangle) {
-                Triangle c = (Triangle) shape;
+            } else if (shape instanceof Triangle c) {
                 c.restorePosition();
                 repaint();
 
-                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
                     lastSelectedShape.remove(c);
                 }
 
-            } else if (shape instanceof Square) {
-                Square c = (Square) shape;
+            } else if (shape instanceof Square c) {
                 c.restorePosition();
                 repaint();
 
-                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
                     lastSelectedShape.remove(c);
                 }
-            } else if (shape instanceof Cube) {
-                Cube c = (Cube) shape;
+            } else if (shape instanceof Cube c) {
                 c.restorePosition();
                 repaint();
 
-                if (c.previousXPositions.size() == 1 && c.previousXPositions.size() == 1) {
+                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
                     lastSelectedShape.remove(c);
                 }
             }

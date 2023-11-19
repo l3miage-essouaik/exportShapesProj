@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JSonVisitor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">myproject_g2_5</a> &gt; <a href="index.source.html" class="el_package">edu.uga.miage.m1.polygons.gui.persistence</a> &gt; <span class="el_source">JSonVisitor.java</span></div><h1>JSonVisitor.java</h1><pre class="source lang-java linenums">package edu.uga.miage.m1.polygons.gui.persistence;
 
+import javax.swing.GroupLayout.Group;
+
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import edu.uga.miage.m1.polygons.gui.shapes.Cube;
+import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
+import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import lombok.Getter;
@@ -12,39 +16,63 @@ import lombok.Setter;
  *         &quot;mailto:christophe.saint-marcel@univ-grenoble-alpes.fr&quot;&gt;Christophe&lt;/a&gt;
  */
 @Getter
-<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L19">@Setter</span>
 public class JSonVisitor implements Visitor {
 
-<span class="fc" id="L18">    private String representation = null;</span>
+<span class="fc" id="L22">    private String representation = null;</span>
 
-<span class="fc" id="L20">    public JSonVisitor() {</span>
+<span class="fc" id="L24">    public JSonVisitor() {</span>
         // empty pour le moment
 
-<span class="fc" id="L23">    }</span>
+<span class="fc" id="L27">    }</span>
 
     @Override
     public void visit(Circle circle) {
-<span class="fc" id="L27">        this.representation = generateJSON(&quot;circle&quot;, circle.getX(), circle.getY());</span>
-<span class="fc" id="L28">    }</span>
+<span class="fc" id="L31">        this.representation = generateJSON(&quot;circle&quot;, circle.getX(), circle.getY());</span>
+<span class="fc" id="L32">    }</span>
+
+    @Override
+    public void visit(GroupeShape groupeShape) {
+<span class="nc" id="L36">        String beginJson = &quot;{\n&quot; + &quot; groupeShape : [&quot;;</span>
+<span class="nc" id="L37">        String endJson = &quot;]&quot;;</span>
+<span class="nc" id="L38">        String representation2 = &quot;&quot;;</span>
+<span class="nc bnc" id="L39" title="All 2 branches missed.">        for (SimpleShape g : groupeShape.shapesGroupe) {</span>
+<span class="nc" id="L40">            String gString = &quot;&quot;;</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            if (g instanceof Circle) {</span>
+<span class="nc" id="L42">                gString = &quot;circle&quot;;</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">            } else if (g instanceof Triangle) {</span>
+<span class="nc" id="L44">                gString = &quot;triangle&quot;;</span>
+            }
+
+<span class="nc bnc" id="L47" title="All 2 branches missed.">            else if (g instanceof Cube) {</span>
+<span class="nc" id="L48">                gString = &quot;cube&quot;;</span>
+            }
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (g instanceof Square) {</span>
+<span class="nc" id="L51">                gString = &quot;square&quot;;</span>
+            }
+<span class="nc" id="L53">            representation2 = generateJSON(gString, g.getX(), g.getY());</span>
+<span class="nc" id="L54">        }</span>
+<span class="nc" id="L55">        this.representation = beginJson + representation2 + endJson;</span>
+<span class="nc" id="L56">    }</span>
 
     @Override
     public void visit(Square square) {
-<span class="fc" id="L32">        this.representation = generateJSON(&quot;square&quot;, square.getX(), square.getY());</span>
-<span class="fc" id="L33">    }</span>
+<span class="fc" id="L60">        this.representation = generateJSON(&quot;square&quot;, square.getX(), square.getY());</span>
+<span class="fc" id="L61">    }</span>
 
     @Override
     public void visit(Cube cube) {
-<span class="nc" id="L37">        this.representation = generateJSON(&quot;cube&quot;, cube.getX(), cube.getY());</span>
-<span class="nc" id="L38">    }</span>
+<span class="nc" id="L65">        this.representation = generateJSON(&quot;cube&quot;, cube.getX(), cube.getY());</span>
+<span class="nc" id="L66">    }</span>
 
     @Override
     public void visit(Triangle triangle) {
-<span class="fc" id="L42">        this.representation = generateJSON(&quot;triangle&quot;, triangle.getX(), triangle.getY());</span>
-<span class="fc" id="L43">    }</span>
+<span class="fc" id="L70">        this.representation = generateJSON(&quot;triangle&quot;, triangle.getX(), triangle.getY());</span>
+<span class="fc" id="L71">    }</span>
 
     // logique de gÃ©nÃ©ration de de Json pour les 3 figures
     private String generateJSON(String type, int x, int y) {
-<span class="fc" id="L47">        return &quot;{\n&quot; +</span>
+<span class="fc" id="L75">        return &quot;{\n&quot; +</span>
                 &quot;    \&quot;type\&quot;: \&quot;&quot; + type + &quot;\&quot;,\n&quot; +
                 &quot;    \&quot;x\&quot;: &quot; + x + &quot;,\n&quot; +
                 &quot;    \&quot;y\&quot;: &quot; + y + &quot;\n&quot; +

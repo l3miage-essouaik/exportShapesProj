@@ -37,14 +37,21 @@ import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
  * @author <a href=
  *         "mailto:christophe.saint-marcel@univ-grenoble-alpes.fr">Christophe</a>
  */
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class Square implements SimpleShape, Visitable {
 
     int mX;
 
     int mY;
     boolean shapeMoved;
-    public List<Integer> previousXPositions = new ArrayList<>();
-    public List<Integer> previousYPositions = new ArrayList<>();
+    int lastX;
+    int lastY;
+    private List<Integer> previousXPositions = new ArrayList<>();
+    private List<Integer> previousYPositions = new ArrayList<>();
 
     public Square(int x, int y) {
         mX = x - 25;
@@ -106,5 +113,11 @@ public class Square implements SimpleShape, Visitable {
             mX = this.previousXPositions.remove(previousXPositions.size() - 1);
             mY = this.previousYPositions.remove(previousYPositions.size() - 1);
         }
+    }
+
+    @Override
+    public void setLastXY(int x, int y) {
+        lastX = x;
+        lastY = y;
     }
 }
