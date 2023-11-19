@@ -90,6 +90,12 @@ public class Square implements SimpleShape, Visitable {
         this.shapeMoved = true;
     }
 
+    @Override
+    public boolean contains(int x, int y) {
+        Rectangle2D carre = new Rectangle2D.Double(mX, mY, 50, 50);
+        return carre.contains(x, y);
+    }
+
     public void savePosition() {
         this.previousXPositions.add(mX);
         this.previousYPositions.add(mY);

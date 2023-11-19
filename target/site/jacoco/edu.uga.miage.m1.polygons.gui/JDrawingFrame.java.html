@@ -84,12 +84,12 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * Tracks buttons to manage the background.
      */
 <span class="fc" id="L86">    private final EnumMap&lt;Shapes, JButton&gt; mButtons = new EnumMap&lt;&gt;(Shapes.class);</span>
-<span class="fc" id="L87">    private final transient Command undoCommand = new UndoShapeCommand(this);</span>
 
-<span class="fc" id="L89">    private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);</span>
     private SimpleShape selectedShape;
     private boolean shapeMoved;
-<span class="fc" id="L92">    private List&lt;SimpleShape&gt; lastSelectedShape = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L90">    private List&lt;SimpleShape&gt; lastSelectedShape = new ArrayList&lt;&gt;();</span>
+    private transient Command undoCommand;
+<span class="fc" id="L92">    private transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);</span>
 
     /**
      * Default constructor that populates the main window.
@@ -151,10 +151,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 
 <span class="fc" id="L152">        mtoolbar.add(exportToXmlButton);</span>
 <span class="fc" id="L153">        JButton ctrlZ = new JButton(&quot;Revoke&quot;);</span>
-<span class="pc" id="L154">        ctrlZ.addActionListener(e -&gt; undoCommandInvoker.undo());</span>
+<span class="pc" id="L154">        ctrlZ.addActionListener(e -&gt; undoCommandInvoker.execute());</span>
 <span class="fc" id="L155">        mtoolbar.add(ctrlZ);</span>
 
-        // keyboardFocusManager pour savoir si les buttons sont prÃ©ssÃ©s
+        // keyboardFocusManager pour savoir si les buttons sont prÃÂÃÂ©ssÃÂÃÂ©s
 <span class="fc" id="L158">        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(a -&gt; {</span>
 <span class="nc bnc" id="L159" title="All 2 branches missed.">            if (a.getID() == KeyEvent.KEY_PRESSED</span>
 <span class="nc bnc" id="L160" title="All 2 branches missed.">                    &amp;&amp; a.getKeyCode() == KeyEvent.VK_Z</span>
@@ -242,6 +242,12 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 <span class="fc" id="L242">        repaint();</span>
 <span class="fc" id="L243">    }</span>
 
+    // Paint the Shape
+    public void drawShape(SimpleShape shape) {
+<span class="nc" id="L247">        shape.draw((Graphics2D) mPanel.getGraphics());</span>
+<span class="nc" id="L248">        listOfShapes.add(shape);</span>
+<span class="nc" id="L249">    }</span>
+
     /**
      * Implements method for the &lt;tt&gt;MouseListener&lt;/tt&gt; interface to
      * draw the selected shape into the drawing canvas.
@@ -249,44 +255,38 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * @param evt The associated mouse event.
      */
     public void mouseClicked(MouseEvent evt) {
-<span class="nc bnc" id="L252" title="All 2 branches missed.">        if (mPanel.contains(evt.getX(), evt.getY())) {</span>
-<span class="nc" id="L253">            Graphics2D g2 = (Graphics2D) mPanel.getGraphics();</span>
-<span class="nc bnc" id="L254" title="All 5 branches missed.">            switch (mSelected) {</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">        if (mPanel.contains(evt.getX(), evt.getY())) {</span>
+<span class="nc" id="L259">            Graphics2D g2 = (Graphics2D) mPanel.getGraphics();</span>
+<span class="nc" id="L260">            SimpleShape simpleShape = null;</span>
+<span class="nc bnc" id="L261" title="All 5 branches missed.">            switch (mSelected) {</span>
                 case CIRCLE:
-<span class="nc" id="L256">                    Circle crc = new Circle(evt.getX(), evt.getY());</span>
-<span class="nc" id="L257">                    crc.draw(g2);</span>
-<span class="nc" id="L258">                    Command addCircleCommand = new AddCircleCommand(crc, listOfShapes);</span>
-<span class="nc" id="L259">                    addCircleCommand.execute();</span>
-<span class="nc" id="L260">                    commandHistory.add(addCircleCommand);</span>
-<span class="nc" id="L261">                    crc.savePosition();</span>
-<span class="nc" id="L262">                    break;</span>
+<span class="nc" id="L263">                    simpleShape = new Circle(evt.getX(), evt.getY());</span>
+
+<span class="nc" id="L265">                    break;</span>
                 case TRIANGLE:
-<span class="nc" id="L264">                    Triangle trg = new Triangle(evt.getX(), evt.getY());</span>
-<span class="nc" id="L265">                    trg.draw(g2);</span>
-<span class="nc" id="L266">                    Command addTriangleCommand = new AddTriangleCommand(trg, listOfShapes);</span>
-<span class="nc" id="L267">                    addTriangleCommand.execute();</span>
-<span class="nc" id="L268">                    commandHistory.add(addTriangleCommand);</span>
-<span class="nc" id="L269">                    trg.savePosition();</span>
-<span class="nc" id="L270">                    break;</span>
+<span class="nc" id="L267">                    simpleShape = new Triangle(evt.getX(), evt.getY());</span>
+<span class="nc" id="L268">                    break;</span>
                 case SQUARE:
-<span class="nc" id="L272">                    Square sqr = new Square(evt.getX(), evt.getY());</span>
-<span class="nc" id="L273">                    sqr.draw(g2);</span>
-<span class="nc" id="L274">                    Command addSquareCommand = new AddSquareCommand(sqr, listOfShapes);</span>
-<span class="nc" id="L275">                    addSquareCommand.execute();</span>
-<span class="nc" id="L276">                    commandHistory.add(addSquareCommand);</span>
-<span class="nc" id="L277">                    sqr.savePosition();</span>
-<span class="nc" id="L278">                    break;</span>
+<span class="nc" id="L270">                    simpleShape = new Square(evt.getX(), evt.getY());</span>
+<span class="nc" id="L271">                    break;</span>
                 case CUBE:
-<span class="nc" id="L280">                    Cube cbr = new Cube(evt.getX(), evt.getY());</span>
-<span class="nc" id="L281">                    cbr.draw(g2);</span>
-<span class="nc" id="L282">                    Command addCubeCommand = new AddCubeCommand(cbr, listOfShapes);</span>
-<span class="nc" id="L283">                    addCubeCommand.execute();</span>
-<span class="nc" id="L284">                    commandHistory.add(addCubeCommand);</span>
-<span class="nc" id="L285">                    cbr.savePosition();</span>
-<span class="nc" id="L286">                    break;</span>
+<span class="nc" id="L273">                    simpleShape = new Cube(evt.getX(), evt.getY());</span>
+<span class="nc" id="L274">                    break;</span>
                 default:
             }
+<span class="nc bnc" id="L277" title="All 2 branches missed.">            if (simpleShape != null) {</span>
+<span class="nc" id="L278">                executeAddShape(g2, simpleShape, listOfShapes);</span>
+            }
         }
+<span class="nc" id="L281">    }</span>
+
+    // execute addshapeCommand et savePosition
+    public void executeAddShape(Graphics2D g2, SimpleShape simpleShape, List&lt;SimpleShape&gt; listOfShapes) {
+<span class="nc" id="L285">        simpleShape.draw(g2);</span>
+<span class="nc" id="L286">        Command addShapeCommand = new AddShapeCommand(simpleShape, listOfShapes);</span>
+<span class="nc" id="L287">        addShapeCommand.execute();</span>
+<span class="nc" id="L288">        commandHistory.add(addShapeCommand);</span>
+<span class="nc" id="L289">        simpleShape.savePosition();</span>
 <span class="nc" id="L290">    }</span>
 
     /**
@@ -327,11 +327,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 <span class="nc" id="L327">                selectedShape = shape;</span>
 <span class="nc" id="L328">                shape.savePosition();</span>
 <span class="nc" id="L329">                lastSelectedShape.add(shape);</span>
-<span class="nc" id="L330">                System.out.println(lastSelectedShape);</span>
-<span class="nc" id="L331">                break; //</span>
+<span class="nc" id="L330">                break;</span>
             }
-<span class="nc" id="L333">        }</span>
-<span class="nc" id="L334">    }</span>
+<span class="nc" id="L332">        }</span>
+<span class="nc" id="L333">    }</span>
 
     /**
      * Implements method for the &lt;tt&gt;MouseListener&lt;/tt&gt; interface to complete
@@ -341,8 +340,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     @Override
     public void mouseReleased(MouseEvent evt) {
-<span class="nc" id="L344">        selectedShape = null;</span>
-<span class="nc" id="L345">    }</span>
+<span class="nc" id="L343">        selectedShape = null;</span>
+<span class="nc" id="L344">    }</span>
 
     /**
      * Implements method for the &lt;tt&gt;MouseMotionListener&lt;/tt&gt; interface to
@@ -352,17 +351,15 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     @Override
     public void mouseDragged(MouseEvent evt) {
-<span class="nc bnc" id="L355" title="All 2 branches missed.">        if (selectedShape != null) {</span>
-<span class="nc" id="L356">            int newX = evt.getX() - 25; // Mettre Ã  jour la nouvelle position en fonction du dÃ©placement de la souris</span>
-<span class="nc" id="L357">            int newY = evt.getY() - 25;</span>
+<span class="nc bnc" id="L354" title="All 2 branches missed.">        if (selectedShape != null) {</span>
+<span class="nc" id="L355">            int newX = evt.getX() - 25;</span>
+<span class="nc" id="L356">            int newY = evt.getY() - 25;</span>
 
-            // Mettre Ã  jour la position de la forme sÃ©lectionnÃ©e
-<span class="nc" id="L360">            selectedShape.move(newX, newY);</span>
-<span class="nc" id="L361">            this.shapeMoved = true;</span>
-<span class="nc" id="L362">            repaint(); // Redessiner pour afficher la forme Ã  sa nouvelle position</span>
-
+<span class="nc" id="L358">            selectedShape.move(newX, newY);</span>
+<span class="nc" id="L359">            this.shapeMoved = true;</span>
+<span class="nc" id="L360">            repaint();</span>
         }
-<span class="nc" id="L365">    }</span>
+<span class="nc" id="L362">    }</span>
 
     /**
      * Implements an empty method for the &lt;tt&gt;MouseMotionListener&lt;/tt&gt;
@@ -371,109 +368,115 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      * @param evt The associated mouse event.
      */
     public void mouseMoved(MouseEvent evt) {
-<span class="nc" id="L374">        modifyLabel(evt);</span>
-<span class="nc" id="L375">    }</span>
+<span class="nc" id="L371">        modifyLabel(evt);</span>
+<span class="nc" id="L372">    }</span>
 
     private void modifyLabel(MouseEvent evt) {
-<span class="nc" id="L378">        mLabel.setText(&quot;(&quot; + evt.getX() + &quot;,&quot; + evt.getY() + &quot;)&quot;);</span>
-<span class="nc" id="L379">    }</span>
+<span class="nc" id="L375">        mLabel.setText(&quot;(&quot; + evt.getX() + &quot;,&quot; + evt.getY() + &quot;)&quot;);</span>
+<span class="nc" id="L376">    }</span>
 
     /**
      * Simple action listener for shape toolbar buttons that sets
      * the drawing frame's currently selected shape when receiving
      * an action event.
      */
-<span class="fc" id="L386">    private class ShapeActionListener implements ActionListener {</span>
+<span class="fc" id="L383">    private class ShapeActionListener implements ActionListener {</span>
 
         public void actionPerformed(ActionEvent evt) {
-            // ItÃ¨re sur tous les boutons
-<span class="fc bfc" id="L390" title="All 2 branches covered.">            for (Map.Entry&lt;Shapes, JButton&gt; entry : mButtons.entrySet()) {</span>
-<span class="fc" id="L391">                Shapes shape = entry.getKey();</span>
-<span class="fc" id="L392">                JButton btn = entry.getValue();</span>
-<span class="pc bpc" id="L393" title="1 of 2 branches missed.">                if (evt.getActionCommand().equals(shape.toString())) {</span>
-<span class="fc" id="L394">                    btn.setBorderPainted(true);</span>
-<span class="fc" id="L395">                    mSelected = shape;</span>
+            // ItÃÂÃÂ¨re sur tous les boutons
+<span class="fc bfc" id="L387" title="All 2 branches covered.">            for (Map.Entry&lt;Shapes, JButton&gt; entry : mButtons.entrySet()) {</span>
+<span class="fc" id="L388">                Shapes shape = entry.getKey();</span>
+<span class="fc" id="L389">                JButton btn = entry.getValue();</span>
+<span class="pc bpc" id="L390" title="1 of 2 branches missed.">                if (evt.getActionCommand().equals(shape.toString())) {</span>
+<span class="fc" id="L391">                    btn.setBorderPainted(true);</span>
+<span class="fc" id="L392">                    mSelected = shape;</span>
                 } else {
-<span class="nc" id="L397">                    btn.setBorderPainted(false);</span>
+<span class="nc" id="L394">                    btn.setBorderPainted(false);</span>
                 }
-<span class="fc" id="L399">                btn.repaint();</span>
-<span class="fc" id="L400">            }</span>
+<span class="fc" id="L396">                btn.repaint();</span>
+<span class="fc" id="L397">            }</span>
 
-<span class="fc" id="L402">        }</span>
+<span class="fc" id="L399">        }</span>
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-<span class="nc bnc" id="L407" title="All 4 branches missed.">        if (e.isControlDown() &amp;&amp; e.getKeyCode() == KeyEvent.VK_Z) {</span>
-<span class="nc" id="L408">            undoCommandInvoker.undo();</span>
+<span class="nc bnc" id="L404" title="All 4 branches missed.">        if (e.isControlDown() &amp;&amp; e.getKeyCode() == KeyEvent.VK_Z) {</span>
+<span class="nc" id="L405">            undoCommandInvoker.execute();</span>
         }
-<span class="nc" id="L410">    }</span>
+<span class="nc" id="L407">    }</span>
 
     @Override
     public void keyReleased(KeyEvent arg0) {
         // empty pour le moment
-<span class="nc" id="L415">    }</span>
+<span class="nc" id="L412">    }</span>
 
     @Override
     public void keyTyped(KeyEvent arg0) {
         // empty pour le moment
-<span class="nc" id="L420">    }</span>
+<span class="nc" id="L417">    }</span>
 
-    public void undo() {
+    @Override
+    public void paintComponents(Graphics g) {
+<span class="nc" id="L421">        Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();</span>
+<span class="nc" id="L422">        newGraph.setColor(Color.WHITE);</span>
+<span class="nc" id="L423">        newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());</span>
+<span class="nc bnc" id="L424" title="All 2 branches missed.">        for (SimpleShape simpleShape : listOfShapes) {</span>
+<span class="nc" id="L425">            simpleShape.draw((Graphics2D) this.mPanel.getGraphics());</span>
+<span class="nc" id="L426">        }</span>
+<span class="nc" id="L427">    }</span>
+
+    public void undoShape() {
         SimpleShape shape;
-<span class="nc bnc" id="L424" title="All 6 branches missed.">        if (!commandHistory.isEmpty() &amp;&amp; !listOfShapes.isEmpty() &amp;&amp; this.lastSelectedShape.size() == 0) {</span>
-<span class="nc" id="L425">            commandHistory.remove(commandHistory.size() - 1);</span>
-<span class="nc" id="L426">            listOfShapes.remove(listOfShapes.size() - 1);</span>
-<span class="nc bnc" id="L427" title="All 2 branches missed.">        } else if (this.lastSelectedShape.size() &gt; 0) {</span>
+<span class="nc" id="L431">        undoCommand = new UndoShapeCommand(this, commandHistory, listOfShapes,</span>
+                lastSelectedShape);
+<span class="nc" id="L433">        undoCommandInvoker = new CommandInvoker(undoCommand);</span>
+<span class="nc" id="L434">        undoCommandInvoker.execute();</span>
+<span class="nc bnc" id="L435" title="All 2 branches missed.">        if (this.lastSelectedShape.size() &gt; 0) {</span>
             // get last shape dans la liste des selected
-<span class="nc" id="L429">            shape = lastSelectedShape.get(lastSelectedShape.size() - 1);</span>
+<span class="nc" id="L437">            shape = lastSelectedShape.get(lastSelectedShape.size() - 1);</span>
 
-<span class="nc bnc" id="L431" title="All 2 branches missed.">            if (shape instanceof Circle) {</span>
-<span class="nc" id="L432">                Circle c = (Circle) shape;</span>
-<span class="nc" id="L433">                c.restorePosition();</span>
-<span class="nc" id="L434">                repaint();</span>
-
-<span class="nc bnc" id="L436" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
-<span class="nc" id="L437">                    lastSelectedShape.remove(c);</span>
-                }
-<span class="nc bnc" id="L439" title="All 2 branches missed.">            } else if (shape instanceof Triangle) {</span>
-<span class="nc" id="L440">                Triangle c = (Triangle) shape;</span>
+<span class="nc bnc" id="L439" title="All 2 branches missed.">            if (shape instanceof Circle) {</span>
+<span class="nc" id="L440">                Circle c = (Circle) shape;</span>
 <span class="nc" id="L441">                c.restorePosition();</span>
 <span class="nc" id="L442">                repaint();</span>
 
 <span class="nc bnc" id="L444" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
 <span class="nc" id="L445">                    lastSelectedShape.remove(c);</span>
                 }
+<span class="nc bnc" id="L447" title="All 2 branches missed.">            } else if (shape instanceof Triangle) {</span>
+<span class="nc" id="L448">                Triangle c = (Triangle) shape;</span>
+<span class="nc" id="L449">                c.restorePosition();</span>
+<span class="nc" id="L450">                repaint();</span>
 
-<span class="nc bnc" id="L448" title="All 2 branches missed.">            } else if (shape instanceof Square) {</span>
-<span class="nc" id="L449">                Square c = (Square) shape;</span>
-<span class="nc" id="L450">                c.restorePosition();</span>
-<span class="nc" id="L451">                repaint();</span>
-
-<span class="nc bnc" id="L453" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
-<span class="nc" id="L454">                    lastSelectedShape.remove(c);</span>
+<span class="nc bnc" id="L452" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
+<span class="nc" id="L453">                    lastSelectedShape.remove(c);</span>
                 }
-<span class="nc bnc" id="L456" title="All 2 branches missed.">            } else if (shape instanceof Cube) {</span>
-<span class="nc" id="L457">                Cube c = (Cube) shape;</span>
+
+<span class="nc bnc" id="L456" title="All 2 branches missed.">            } else if (shape instanceof Square) {</span>
+<span class="nc" id="L457">                Square c = (Square) shape;</span>
 <span class="nc" id="L458">                c.restorePosition();</span>
 <span class="nc" id="L459">                repaint();</span>
 
 <span class="nc bnc" id="L461" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
 <span class="nc" id="L462">                    lastSelectedShape.remove(c);</span>
                 }
+<span class="nc bnc" id="L464" title="All 2 branches missed.">            } else if (shape instanceof Cube) {</span>
+<span class="nc" id="L465">                Cube c = (Cube) shape;</span>
+<span class="nc" id="L466">                c.restorePosition();</span>
+<span class="nc" id="L467">                repaint();</span>
+
+<span class="nc bnc" id="L469" title="All 4 branches missed.">                if (c.previousXPositions.size() == 1 &amp;&amp; c.previousXPositions.size() == 1) {</span>
+<span class="nc" id="L470">                    lastSelectedShape.remove(c);</span>
+                }
             }
 
         }
 
         // Redessiner tous les shapes sauf celle supprimer
-<span class="nc" id="L469">        Graphics2D newGraph = (Graphics2D) mPanel.getGraphics();</span>
-<span class="nc" id="L470">        newGraph.setColor(Color.WHITE);</span>
-<span class="nc" id="L471">        newGraph.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());</span>
-<span class="nc bnc" id="L472" title="All 2 branches missed.">        for (SimpleShape s : listOfShapes) {</span>
-<span class="nc" id="L473">            s.draw(newGraph);</span>
-<span class="nc" id="L474">        }</span>
+<span class="nc" id="L477">        paintComponents(getGraphics());</span>
 
-<span class="nc" id="L476">    }</span>
+<span class="nc" id="L479">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

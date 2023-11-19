@@ -80,6 +80,13 @@ public class Circle implements SimpleShape, Visitable {
         this.shapeMoved = true;
     }
 
+    @Override
+
+    public boolean contains(int x, int y) {
+        Ellipse2D cercle = new Ellipse2D.Double(mX, mY, 50, 50);
+        return cercle.contains(x, y);
+    }
+
     public void savePosition() {
         this.previousXPositions.add(mX);
         this.previousYPositions.add(mY);

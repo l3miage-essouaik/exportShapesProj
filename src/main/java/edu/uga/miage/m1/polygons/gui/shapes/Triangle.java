@@ -22,9 +22,11 @@ import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Path2D;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -96,6 +98,16 @@ public class Triangle implements SimpleShape, Visitable {
         mX = x;
         mY = y;
         this.shapeMoved = true;
+    }
+
+    @Override
+
+    public boolean contains(int x, int y) {
+        int[] xcoords = { mX + 25, mX, mX + 50 };
+        int[] ycoords = { mY, mY + 50, mY + 50 };
+        Polygon triangle = new Polygon(xcoords, ycoords, xcoords.length);
+
+        return triangle.contains(x, y);
     }
 
     public void savePosition() {

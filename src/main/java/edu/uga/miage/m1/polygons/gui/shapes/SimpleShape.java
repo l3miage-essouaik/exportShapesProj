@@ -28,6 +28,8 @@ public interface SimpleShape {
 
     void move(int x, int y);
 
+    public boolean contains(int x, int y);
+
     void savePosition();
 
     List<Integer> previousXPositions = new ArrayList<>();

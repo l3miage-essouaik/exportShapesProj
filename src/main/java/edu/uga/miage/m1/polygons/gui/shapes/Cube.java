@@ -52,6 +52,12 @@ public class Cube implements SimpleShape, Visitable {
         this.shapeMoved = true;
     }
 
+    @Override
+
+    public boolean contains(int x, int y) {
+        return false;
+    }
+
     public void savePosition() {
         this.previousXPositions.add(mX);
         this.previousYPositions.add(mY);
