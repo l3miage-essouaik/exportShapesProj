@@ -80,16 +80,23 @@ public class Circle implements SimpleShape, Visitable {
 <span class="nc" id="L80">        this.shapeMoved = true;</span>
 <span class="nc" id="L81">    }</span>
 
+    @Override
+
+    public boolean contains(int x, int y) {
+<span class="nc" id="L86">        Ellipse2D cercle = new Ellipse2D.Double(mX, mY, 50, 50);</span>
+<span class="nc" id="L87">        return cercle.contains(x, y);</span>
+    }
+
     public void savePosition() {
-<span class="nc" id="L84">        this.previousXPositions.add(mX);</span>
-<span class="nc" id="L85">        this.previousYPositions.add(mY);</span>
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L91">        this.previousXPositions.add(mX);</span>
+<span class="nc" id="L92">        this.previousYPositions.add(mY);</span>
+<span class="nc" id="L93">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L89" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L90">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L91">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="nc bnc" id="L96" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="nc" id="L97">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="nc" id="L98">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L93">    }</span>
+<span class="nc" id="L100">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
