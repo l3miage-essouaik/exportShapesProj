@@ -2,30 +2,28 @@
 package edu.uga.miage.m1.polygons.gui.command;
 
 import java.util.List;
-import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
+
+import com.persistance.shapes.shapes.SimpleShape;
+import com.persistance.shapes.shapes.Triangle;
+
 import lombok.Getter;
 import lombok.Setter;
 
-
 @Getter
-<span class="nc" id="L12">@Setter</span>
+<span class="nc" id="L13">@Setter</span>
 public class AddTriangleCommand implements Command {
-<span class="nc" id="L14">    private Triangle triangle;</span>
-<span class="nc" id="L15">    private List&lt;SimpleShape&gt; listOfShapes;</span>
+<span class="nc" id="L15">    private Triangle triangle;</span>
+<span class="nc" id="L16">    private List&lt;SimpleShape&gt; listOfShapes;</span>
 
-<span class="nc" id="L17">    public AddTriangleCommand(Triangle triangle, List&lt;SimpleShape&gt; listOfShapes) {</span>
-<span class="nc" id="L18">        this.triangle = triangle;</span>
-<span class="nc" id="L19">        this.listOfShapes = listOfShapes;</span>
-<span class="nc" id="L20">    }</span>
+<span class="nc" id="L18">    public AddTriangleCommand(Triangle triangle, List&lt;SimpleShape&gt; listOfShapes) {</span>
+<span class="nc" id="L19">        this.triangle = triangle;</span>
+<span class="nc" id="L20">        this.listOfShapes = listOfShapes;</span>
+<span class="nc" id="L21">    }</span>
 
     @Override
     public void execute() {
-<span class="nc" id="L24">        listOfShapes.add(triangle);</span>
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L25">        listOfShapes.add(triangle);</span>
+<span class="nc" id="L26">    }</span>
 
-
-
-    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

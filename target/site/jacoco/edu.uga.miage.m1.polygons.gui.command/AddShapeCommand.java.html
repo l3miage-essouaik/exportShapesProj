@@ -2,8 +2,9 @@
 
 import java.util.List;
 
+import com.persistance.shapes.shapes.SimpleShape;
+
 import edu.uga.miage.m1.polygons.gui.JDrawingFrame;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 
 public class AddShapeCommand implements Command {
 
@@ -11,18 +12,18 @@ public class AddShapeCommand implements Command {
     private List&lt;SimpleShape&gt; listOfShapes;
     private JDrawingFrame frame;
 
-<span class="nc" id="L14">    public AddShapeCommand(SimpleShape simpleShape, List&lt;SimpleShape&gt; listOfShapes) {</span>
-<span class="nc" id="L15">        this.simpleShape = simpleShape;</span>
-<span class="nc" id="L16">        this.listOfShapes = listOfShapes;</span>
-<span class="nc" id="L17">    }</span>
+<span class="nc" id="L15">    public AddShapeCommand(SimpleShape simpleShape, List&lt;SimpleShape&gt; listOfShapes) {</span>
+<span class="nc" id="L16">        this.simpleShape = simpleShape;</span>
+<span class="nc" id="L17">        this.listOfShapes = listOfShapes;</span>
+<span class="nc" id="L18">    }</span>
 
     @Override
     public void execute() {
-<span class="nc" id="L21">        listOfShapes.add(simpleShape);</span>
-<span class="nc" id="L22">    }</span>
+<span class="nc" id="L22">        listOfShapes.add(simpleShape);</span>
+<span class="nc" id="L23">    }</span>
 
     public void undoShape() {
-<span class="nc" id="L25">        this.frame.undoShape();</span>
-<span class="nc" id="L26">    }</span>
+<span class="nc" id="L26">        this.frame.undoShape();</span>
+<span class="nc" id="L27">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

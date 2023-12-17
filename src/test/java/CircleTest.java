@@ -1,8 +1,9 @@
-import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
-import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.persistance.persistance.persistence.JSonVisitor;
+import com.persistance.persistance.persistence.XMLVisitor;
+import com.persistance.shapes.shapes.Circle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

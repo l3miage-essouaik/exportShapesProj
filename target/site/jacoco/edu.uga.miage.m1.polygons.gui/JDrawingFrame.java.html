@@ -45,17 +45,17 @@ import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 
+import com.persistance.persistance.persistence.JSonVisitor;
+import com.persistance.persistance.persistence.Visitable;
+import com.persistance.persistance.persistence.XMLVisitor;
+import com.persistance.shapes.shapes.Circle;
+import com.persistance.shapes.shapes.Cube;
+import com.persistance.shapes.shapes.GroupeShape;
+import com.persistance.shapes.shapes.SimpleShape;
+import com.persistance.shapes.shapes.Square;
+import com.persistance.shapes.shapes.Triangle;
+
 import edu.uga.miage.m1.polygons.gui.command.*;
-import edu.uga.miage.m1.polygons.gui.persistence.ImportShapeJson;
-import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
-import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
-import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
-import edu.uga.miage.m1.polygons.gui.shapes.Cube;
-import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
-import edu.uga.miage.m1.polygons.gui.shapes.Square;
-import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 
 /**
  * This class represents the main application class, which is a JFrame subclass
@@ -155,8 +155,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 <span class="fc" id="L155">        mtoolbar.validate();</span>
 
 <span class="fc" id="L157">        setPreferredSize(new Dimension(600, 600));</span>
-<span class="fc" id="L158">        jsonVisitor = new JSonVisitor();</span>
-<span class="fc" id="L159">        xmlVisitor = new XMLVisitor();</span>
+<span class="fc" id="L158">        jsonVisitor = new com.persistance.persistance.persistence.JSonVisitor();</span>
+<span class="fc" id="L159">        xmlVisitor = new com.persistance.persistance.persistence.XMLVisitor();</span>
         // Ajout des boutons d'export
 <span class="fc" id="L161">        JButton exportToXmlButton = new JButton(&quot;Export to XML&quot;);</span>
 <span class="pc" id="L162">        exportToXmlButton.addActionListener(e -&gt; exportToXML());</span>
@@ -207,7 +207,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
 <span class="fc" id="L207">    }</span>
 
     private void importShapes() {
-<span class="nc" id="L210">        ImportShapeJson shapeIO = new ImportShapeJson();</span>
+<span class="nc" id="L210">        com.persistance.persistance.persistence.ImportShapeJson shapeIO = new com.persistance.persistance.persistence.ImportShapeJson();</span>
         try {
 <span class="nc" id="L212">            List&lt;SimpleShape&gt; importedShapes = shapeIO.importShapesFromJSON(&quot;dessin.json&quot;);</span>
 <span class="nc" id="L213">            listOfShapes.clear();</span>

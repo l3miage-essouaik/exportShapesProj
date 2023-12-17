@@ -1,11 +1,12 @@
 package edu.uga.miage.m1.polygons.gui.command;
 
 import java.util.List;
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
+
+import com.persistance.shapes.shapes.Circle;
+import com.persistance.shapes.shapes.SimpleShape;
+
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Getter
 @Setter
@@ -23,7 +24,4 @@ public class AddCircleCommand implements Command {
         listOfShapes.add(circle);
     }
 
-
-
-    
 }

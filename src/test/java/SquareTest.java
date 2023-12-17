@@ -1,6 +1,5 @@
-import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
-import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
-import edu.uga.miage.m1.polygons.gui.shapes.Square;
+import com.persistance.persistance.persistence.*;
+import com.persistance.shapes.shapes.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

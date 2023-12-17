@@ -15,7 +15,11 @@
 		<sonar.projectName>myproject_g2_5</sonar.projectName>
 	</properties>
 	<dependencies>
-
+		<dependency>
+			<groupId>com.persistance</groupId>
+			<artifactId>persistance</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.glassfish/javax.json -->
 		<dependency>
 		    <groupId>org.glassfish</groupId>
@@ -39,11 +43,6 @@
 				<version>1.18.26</version>
 				<scope>provided</scope>
 			</dependency>
-			<dependency>
-				<groupId>edu.uga.miage.m1</groupId>
-				<artifactId>edu.uga.singleshape</artifactId>
-				<version>1.0.1</version>
-			   </dependency>
 	</dependencies>
   	<build>
 		<plugins>
@@ -76,16 +75,7 @@
                     </execution>
                 </executions>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<version>3.2.2</version>
-				<configuration>
-					<includes>
-						<include>**/persistance/**</include>
-					</includes>
-				</configuration>
-			</plugin>
+		
        </plugins>
 	</build>
 	

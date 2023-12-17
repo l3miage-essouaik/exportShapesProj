@@ -1,4 +1,28 @@
 {
 	"shapes": [
-		]
+			{
+			"shape": 
+{
+    "type": "circle",
+    "x": 163,
+    "y": 68
+}
+		},
+		{
+			"shape": 
+{
+    "type": "circle",
+    "x": 317,
+    "y": 199
+}
+		},
+		{
+			"shape": 
+{
+    "type": "circle",
+    "x": 209,
+    "y": 178
+}
+		}
+	]
 }

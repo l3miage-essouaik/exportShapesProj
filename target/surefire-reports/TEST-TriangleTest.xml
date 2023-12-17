@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TriangleTest" time="0.018" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TriangleTest" time="0.048" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\test-classes;C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\classes;C:\Users\Mouad\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Mouad\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\Mouad\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\Mouad\.m2\repository\edu\uga\miage\m1\edu.uga.singleshape\1.0.1\edu.uga.singleshape-1.0.1.jar;"/>
+    <property name="java.class.path" value="C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\test-classes;C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\classes;C:\Users\Mouad\.m2\repository\com\persistance\persistance\1.0-SNAPSHOT\persistance-1.0-SNAPSHOT.jar;C:\Users\Mouad\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Mouad\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\Mouad\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
     <property name="sun.awt.enableExtraMouseButtons" value="true"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -16,9 +16,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
-    <property name="sun.java.command" value="C:\Users\Mouad\AppData\Local\Temp\surefire1524840579934781696\surefirebooter1587696842092654731.jar C:\Users\Mouad\AppData\Local\Temp\surefire1524840579934781696 2023-12-17T16-55-16_003-jvmRun1 surefire12365710641866842735tmp surefire_06364838796201743729tmp"/>
+    <property name="sun.java.command" value="C:\Users\Mouad\AppData\Local\Temp\surefire8214621563820861827\surefirebooter2823287339032703099.jar C:\Users\Mouad\AppData\Local\Temp\surefire8214621563820861827 2023-12-17T18-31-35_431-jvmRun1 surefire9183113897738090093tmp surefire_014561153254006198103tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\test-classes;C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\classes;C:\Users\Mouad\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Mouad\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\Mouad\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\Mouad\.m2\repository\edu\uga\miage\m1\edu.uga.singleshape\1.0.1\edu.uga.singleshape-1.0.1.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\test-classes;C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\target\classes;C:\Users\Mouad\.m2\repository\com\persistance\persistance\1.0-SNAPSHOT\persistance-1.0-SNAPSHOT.jar;C:\Users\Mouad\.m2\repository\org\glassfish\javax.json\1.1.4\javax.json-1.1.4.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.4.0\junit-jupiter-engine-5.4.0.jar;C:\Users\Mouad\.m2\repository\org\apiguardian\apiguardian-api\1.0.0\apiguardian-api-1.0.0.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-engine\1.4.0\junit-platform-engine-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\opentest4j\opentest4j\1.1.1\opentest4j-1.1.1.jar;C:\Users\Mouad\.m2\repository\org\junit\platform\junit-platform-commons\1.4.0\junit-platform-commons-1.4.0.jar;C:\Users\Mouad\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.4.0\junit-jupiter-api-5.4.0.jar;C:\Users\Mouad\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\Mouad\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Mouad"/>
     <property name="user.language" value="en"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Mouad\AppData\Local\Temp\surefire1524840579934781696\surefirebooter1587696842092654731.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Mouad\AppData\Local\Temp\surefire8214621563820861827\surefirebooter2823287339032703099.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.6+9-LTS-190"/>
@@ -57,10 +57,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testAcceptJSON" classname="TriangleTest" time="0"/>
+  <testcase name="testAcceptJSON" classname="TriangleTest" time="0.006"/>
   <testcase name="testAcceptXML" classname="TriangleTest" time="0.001"/>
   <testcase name="testTriangleGetX" classname="TriangleTest" time="0.001"/>
   <testcase name="testTriangleGetY" classname="TriangleTest" time="0"/>
-  <testcase name="testTriangleMove" classname="TriangleTest" time="0.001"/>
-  <testcase name="testTriangleSaveAndRestorePosition" classname="TriangleTest" time="0"/>
+  <testcase name="testTriangleMove" classname="TriangleTest" time="0.002"/>
+  <testcase name="testTriangleSaveAndRestorePosition" classname="TriangleTest" time="0.001"/>
 </testsuite>

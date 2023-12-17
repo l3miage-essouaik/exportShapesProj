@@ -5,11 +5,13 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.persistance.shapes.shapes.Circle;
+import com.persistance.shapes.shapes.SimpleShape;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import edu.uga.miage.m1.polygons.gui.DrawingPanel;
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 
 class DrawingPanelTest {
 

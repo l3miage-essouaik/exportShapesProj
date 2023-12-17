@@ -2,8 +2,9 @@ package edu.uga.miage.m1.polygons.gui.command;
 
 import java.util.List;
 
+import com.persistance.shapes.shapes.SimpleShape;
+
 import edu.uga.miage.m1.polygons.gui.JDrawingFrame;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 
 public class AddShapeCommand implements Command {
 

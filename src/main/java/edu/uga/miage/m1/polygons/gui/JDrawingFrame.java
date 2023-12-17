@@ -45,17 +45,17 @@ import javax.swing.SwingConstants;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 
+import com.persistance.persistance.persistence.JSonVisitor;
+import com.persistance.persistance.persistence.Visitable;
+import com.persistance.persistance.persistence.XMLVisitor;
+import com.persistance.shapes.shapes.Circle;
+import com.persistance.shapes.shapes.Cube;
+import com.persistance.shapes.shapes.GroupeShape;
+import com.persistance.shapes.shapes.SimpleShape;
+import com.persistance.shapes.shapes.Square;
+import com.persistance.shapes.shapes.Triangle;
+
 import edu.uga.miage.m1.polygons.gui.command.*;
-import edu.uga.miage.m1.polygons.gui.persistence.ImportShapeJson;
-import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
-import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
-import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
-import edu.uga.miage.m1.polygons.gui.shapes.Circle;
-import edu.uga.miage.m1.polygons.gui.shapes.Cube;
-import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
-import edu.uga.miage.m1.polygons.gui.shapes.Square;
-import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 
 /**
  * This class represents the main application class, which is a JFrame subclass
@@ -155,8 +155,8 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         mtoolbar.validate();
 
         setPreferredSize(new Dimension(600, 600));
-        jsonVisitor = new JSonVisitor();
-        xmlVisitor = new XMLVisitor();
+        jsonVisitor = new com.persistance.persistance.persistence.JSonVisitor();
+        xmlVisitor = new com.persistance.persistance.persistence.XMLVisitor();
         // Ajout des boutons d'export
         JButton exportToXmlButton = new JButton("Export to XML");
         exportToXmlButton.addActionListener(e -> exportToXML());
@@ -207,7 +207,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     }
 
     private void importShapes() {
-        ImportShapeJson shapeIO = new ImportShapeJson();
+        com.persistance.persistance.persistence.ImportShapeJson shapeIO = new com.persistance.persistance.persistence.ImportShapeJson();
         try {
             List<SimpleShape> importedShapes = shapeIO.importShapesFromJSON("dessin.json");
             listOfShapes.clear();
