@@ -23,6 +23,7 @@ import java.awt.event.*;
 import java.io.Serial;
 import java.util.logging.*;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.EnumMap;
@@ -34,6 +35,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingConstants;
@@ -41,6 +46,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamWriter;
 
 import edu.uga.miage.m1.polygons.gui.command.*;
+import edu.uga.miage.m1.polygons.gui.persistence.ImportShapeJson;
 import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
 import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
@@ -91,10 +97,10 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     private final transient CommandInvoker undoCommandInvoker = new CommandInvoker(undoCommand);
     private transient SimpleShape selectedShape;
     private transient List<SimpleShape> lastSelectedShape = new ArrayList<>();
-    private transient boolean selectShapeMultiple = false;
     private transient List<SimpleShape> selectedShapes = new ArrayList<>();
     private transient JToggleButton selectButton;
-    private GroupeShape groupe = null;
+    private transient GroupeShape groupe = null;
+    private transient ActionListener mImportActionListener = new ImportActionListener();
 
     /**
      * Default constructor that populates the main window.
@@ -148,7 +154,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         mtoolbar.add(selectButton);
         mtoolbar.validate();
 
-        setPreferredSize(new Dimension(450, 450));
+        setPreferredSize(new Dimension(600, 600));
         jsonVisitor = new JSonVisitor();
         xmlVisitor = new XMLVisitor();
         // Ajout des boutons d'export
@@ -166,6 +172,7 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         ctrlZ.addActionListener(e -> undoCommandInvoker.execute());
         mtoolbar.add(ctrlZ);
 
+        createMenuBar("activeimport");
         // keyboardFocusManager pour savoir si les buttons sont préssés
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(a -> {
             if (a.getID() == KeyEvent.KEY_PRESSED
@@ -179,9 +186,56 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         addKeyListener(this);
     }
 
+    // Barre de menu JSON
+    private void createMenuBar(String name) {
+        JMenuBar menuBar = new JMenuBar();
+
+        // Créer le menu "Import" et ajouter un élément de menu
+        JMenu importMenu = new JMenu("Import");
+
+        JMenuItem importShapesItem = new JMenuItem("Import Shapes");
+
+        importShapesItem.setActionCommand(name);
+        importShapesItem.addActionListener(mImportActionListener); // Ajouter un ActionListener
+        importMenu.add(importShapesItem);
+
+        // Ajouter les menus à la barre de menu
+        menuBar.add(importMenu);
+
+        // Associer la barre de menu à la fenêtre principale (votre JFrame)
+        setJMenuBar(menuBar);
+    }
+
+    private void importShapes() {
+        ImportShapeJson shapeIO = new ImportShapeJson();
+        try {
+            List<SimpleShape> importedShapes = shapeIO.importShapesFromJSON("dessin.json");
+            listOfShapes.clear();
+            listOfShapes.addAll(importedShapes);
+            redrawShapesList();
+            JOptionPane.showMessageDialog(JDrawingFrame.this, "success");
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(JDrawingFrame.this,
+                    "failure");
+        }
+    }
+
+    public void redrawShapesList() {
+        Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
+        g2.setColor(Color.WHITE); // Clear the panel by painting it white
+        g2.fillRect(0, 0, mPanel.getWidth(), mPanel.getHeight());
+
+        // Redraw the remaining shapes from the listOfShapes
+        for (SimpleShape shape : listOfShapes) {
+            shape.draw(g2);
+        }
+    }
+
+    // Create a group of shapes if the button is selected
     private void selectGroup() {
         if (selectButton.isSelected()) {
-            this.groupe = new GroupeShape(0, 0, new ArrayList<SimpleShape>());
+            this.groupe = new GroupeShape(0, 0, new ArrayList<>());
         }
     }
 
@@ -275,45 +329,58 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
     public void mouseClicked(MouseEvent evt) {
         if (mPanel.contains(evt.getX(), evt.getY())) {
             if (selectButton.isSelected()) {
-                for (int i = listOfShapes.size() - 1; i >= 0; i--) {
-                    SimpleShape shape = listOfShapes.get(i);
-                    if ((shape.getX() <= evt.getX() && evt.getX() <= shape.getX() + 50) &&
-                            (shape.getY() <= evt.getY() && evt.getY() <= shape.getY() + 50)) {
-                        selectedShape = shape;
-                        if (groupe.shapesGroupe.isEmpty()) {
-                            groupe.setXandY(selectedShape.getX(), selectedShape.getY());
-                        }
-                        selectedShape.setLastXY(selectedShape.getX() - groupe.getX(),
-                                selectedShape.getY() - groupe.getY());
-                        groupe.shapesGroupe.add(selectedShape);
-                        System.out.println("Shape add to group" + selectedShape);
-                        break;
-                    }
-                }
-            } else if (!selectButton.isSelected()) {
-                Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
-                SimpleShape simpleShape = null;
-                switch (mSelected) {
-                    case CIRCLE:
-                        simpleShape = new Circle(evt.getX(), evt.getY());
-
-                        break;
-                    case TRIANGLE:
-                        simpleShape = new Triangle(evt.getX(), evt.getY());
-                        break;
-                    case SQUARE:
-                        simpleShape = new Square(evt.getX(), evt.getY());
-                        break;
-                    case CUBE:
-                        simpleShape = new Cube(evt.getX(), evt.getY());
-                        break;
-                    default:
-                }
-                if (simpleShape != null) {
-                    executeAddShape(g2, simpleShape, listOfShapes);
-                }
+                handleSelection(evt);
+            } else {
+                addNewShape(evt);
             }
+        }
+    }
 
+    private void handleSelection(MouseEvent evt) {
+        for (int i = listOfShapes.size() - 1; i >= 0; i--) {
+            SimpleShape shape = listOfShapes.get(i);
+            if (isMouseInsideShape(evt.getX(), evt.getY(), shape)) {
+                selectShape(shape);
+                break;
+            }
+        }
+    }
+
+    private boolean isMouseInsideShape(int x, int y, SimpleShape shape) {
+        return (shape.getX() <= x && x <= shape.getX() + 50) &&
+                (shape.getY() <= y && y <= shape.getY() + 50);
+    }
+
+    private void selectShape(SimpleShape shape) {
+        selectedShape = shape;
+        if (groupe.getShapesGroupe().isEmpty()) {
+            groupe.setXandY(selectedShape.getX(), selectedShape.getY());
+        }
+        selectedShape.setLastXY(selectedShape.getX() - groupe.getX(),
+                selectedShape.getY() - groupe.getY());
+        groupe.getShapesGroupe().add(selectedShape);
+    }
+
+    private void addNewShape(MouseEvent evt) {
+        Graphics2D g2 = (Graphics2D) mPanel.getGraphics();
+        SimpleShape simpleShape = createShape(evt);
+        if (simpleShape != null) {
+            executeAddShape(g2, simpleShape, listOfShapes);
+        }
+    }
+
+    private SimpleShape createShape(MouseEvent evt) {
+        switch (mSelected) {
+            case CIRCLE:
+                return new Circle(evt.getX(), evt.getY());
+            case TRIANGLE:
+                return new Triangle(evt.getX(), evt.getY());
+            case SQUARE:
+                return new Square(evt.getX(), evt.getY());
+            case CUBE:
+                return new Cube(evt.getX(), evt.getY());
+            default:
+                return null;
         }
     }
 
@@ -378,7 +445,6 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
      */
     @Override
     public void mouseReleased(MouseEvent evt) {
-        selectShapeMultiple = false;
         selectedShape = null;
     }
 
@@ -440,6 +506,14 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
     }
 
+    private class ImportActionListener implements ActionListener {
+        public void actionPerformed(ActionEvent evt) {
+            if (evt.getActionCommand().equals("activeimport")) {
+                importShapes();
+            }
+        }
+    }
+
     @Override
     public void keyPressed(KeyEvent e) {
         if (e.isControlDown() && e.getKeyCode() == KeyEvent.VK_Z) {
@@ -467,51 +541,63 @@ public class JDrawingFrame extends JFrame implements MouseListener, MouseMotionL
         }
     }
 
+    private void handleShape(SimpleShape shape) {
+        if (shape instanceof Circle circle) {
+            handleCircle(circle);
+        } else if (shape instanceof Triangle triangle) {
+            handleTriangle(triangle);
+        } else if (shape instanceof Square s) {
+            handleSquare(s);
+        } else if (shape instanceof Cube c) {
+            handleCube(c);
+        }
+    }
+
+    private void handleCircle(Circle circle) {
+        circle.restorePosition();
+        repaint();
+
+        if (circle.getPreviousXPositions().size() == 1 && circle.getPreviousYPositions().size() == 1) {
+            lastSelectedShape.remove(circle);
+        }
+    }
+
+    private void handleSquare(Square square) {
+        square.restorePosition();
+        repaint();
+
+        if (square.getPreviousXPositions().size() == 1 && square.getPreviousYPositions().size() == 1) {
+            lastSelectedShape.remove(square);
+        }
+    }
+
+    private void handleTriangle(Triangle triangle) {
+        triangle.restorePosition();
+        repaint();
+
+        if (triangle.getPreviousXPositions().size() == 1 && triangle.getPreviousYPositions().size() == 1) {
+            lastSelectedShape.remove(triangle);
+        }
+    }
+
+    private void handleCube(Cube cube) {
+        cube.restorePosition();
+        repaint();
+
+        if (cube.getPreviousXPositions().size() == 1 && cube.getPreviousYPositions().size() == 1) {
+            lastSelectedShape.remove(cube);
+        }
+    }
+
     public void undoShape() {
-        SimpleShape shape;
         if (!commandHistory.isEmpty() && !listOfShapes.isEmpty() && this.lastSelectedShape.isEmpty()) {
             commandHistory.remove(commandHistory.size() - 1);
             listOfShapes.remove(listOfShapes.size() - 1);
         } else if (!this.lastSelectedShape.isEmpty()) {
-            // get last shape dans la liste des selected
-            shape = lastSelectedShape.get(lastSelectedShape.size() - 1);
-
-            if (shape instanceof Circle c) {
-                c.restorePosition();
-                repaint();
-
-                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
-                    lastSelectedShape.remove(c);
-                }
-            } else if (shape instanceof Triangle c) {
-                c.restorePosition();
-                repaint();
-
-                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
-                    lastSelectedShape.remove(c);
-                }
-
-            } else if (shape instanceof Square c) {
-                c.restorePosition();
-                repaint();
-
-                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
-                    lastSelectedShape.remove(c);
-                }
-            } else if (shape instanceof Cube c) {
-                c.restorePosition();
-                repaint();
-
-                if (c.getPreviousXPositions().size() == 1 && c.getPreviousYPositions().size() == 1) {
-                    lastSelectedShape.remove(c);
-                }
-            }
-
+            SimpleShape shape = lastSelectedShape.get(lastSelectedShape.size() - 1);
+            handleShape(shape);
         }
-
-        // Redessiner tous les shapes sauf celle supprimer
         paintComponents(getGraphics());
-
     }
 
 }

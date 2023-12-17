@@ -35,6 +35,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Circle implements SimpleShape, Visitable {
+    final String typeShape = "circle";
 
     int mX;
     int mY;
@@ -87,7 +88,7 @@ public class Circle implements SimpleShape, Visitable {
     }
 
     @Override
-
+    // aa
     public boolean contains(int x, int y) {
         Ellipse2D cercle = new Ellipse2D.Double(mX, mY, 50, 50);
         return cercle.contains(x, y);

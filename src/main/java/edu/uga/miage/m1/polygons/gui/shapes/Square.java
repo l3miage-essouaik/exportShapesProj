@@ -43,6 +43,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Square implements SimpleShape, Visitable {
+    final String typeShape = "square";
 
     int mX;
 
@@ -81,12 +82,10 @@ public class Square implements SimpleShape, Visitable {
         visitor.visit(this);
     }
 
-    @Override
     public int getX() {
         return mX;
     }
 
-    @Override
     public int getY() {
         return mY;
     }
@@ -115,7 +114,6 @@ public class Square implements SimpleShape, Visitable {
         }
     }
 
-    @Override
     public void setLastXY(int x, int y) {
         lastX = x;
         lastY = y;

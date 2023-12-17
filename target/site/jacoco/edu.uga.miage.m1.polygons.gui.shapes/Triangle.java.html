@@ -46,19 +46,20 @@ import lombok.Setter;
 <span class="nc" id="L46">@Setter</span>
 public class Triangle implements SimpleShape, Visitable {
 
-<span class="nc" id="L49">    int mX;</span>
+<span class="pc" id="L49">    final String typeShape = &quot;triangle&quot;;</span>
+<span class="nc" id="L50">    int mX;</span>
 
-<span class="nc" id="L51">    int mY;</span>
-<span class="nc" id="L52">    int lastX;</span>
-<span class="nc" id="L53">    int lastY;</span>
-<span class="nc" id="L54">    boolean shapeMoved;</span>
-<span class="pc" id="L55">    private List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
-<span class="pc" id="L56">    private List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L52">    int mY;</span>
+<span class="nc" id="L53">    int lastX;</span>
+<span class="nc" id="L54">    int lastY;</span>
+<span class="nc" id="L55">    boolean shapeMoved;</span>
+<span class="pc" id="L56">    private List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
+<span class="pc" id="L57">    private List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
 
-<span class="fc" id="L58">    public Triangle(int x, int y) {</span>
-<span class="fc" id="L59">        mX = x - 25;</span>
-<span class="fc" id="L60">        mY = y - 25;</span>
-<span class="fc" id="L61">    }</span>
+<span class="fc" id="L59">    public Triangle(int x, int y) {</span>
+<span class="fc" id="L60">        mX = x - 25;</span>
+<span class="fc" id="L61">        mY = y - 25;</span>
+<span class="fc" id="L62">    }</span>
 
     /**
      * Implements the &lt;tt&gt;SimpleShape.draw()&lt;/tt&gt; method for painting
@@ -67,71 +68,71 @@ public class Triangle implements SimpleShape, Visitable {
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
-<span class="nc" id="L70">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
-<span class="nc" id="L71">        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float) mX + 50, mY, Color.WHITE);</span>
-<span class="nc" id="L72">        g2.setPaint(gradient);</span>
-<span class="nc" id="L73">        float[] xcoords = { mX + 25, mX, mX + 50 };</span>
-<span class="nc" id="L74">        float[] ycoords = { mY, mY + 50, mY + 50 };</span>
-<span class="nc" id="L75">        GeneralPath polygon = new GeneralPath(Path2D.WIND_EVEN_ODD, xcoords.length);</span>
-<span class="nc" id="L76">        polygon.moveTo((float) mX + 25, mY);</span>
-<span class="nc bnc" id="L77" title="All 2 branches missed.">        for (int i = 0; i &lt; xcoords.length; i++) {</span>
-<span class="nc" id="L78">            polygon.lineTo(xcoords[i], ycoords[i]);</span>
+<span class="nc" id="L71">        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);</span>
+<span class="nc" id="L72">        GradientPaint gradient = new GradientPaint(mX, mY, Color.GREEN, (float) mX + 50, mY, Color.WHITE);</span>
+<span class="nc" id="L73">        g2.setPaint(gradient);</span>
+<span class="nc" id="L74">        float[] xcoords = { mX + 25, mX, mX + 50 };</span>
+<span class="nc" id="L75">        float[] ycoords = { mY, mY + 50, mY + 50 };</span>
+<span class="nc" id="L76">        GeneralPath polygon = new GeneralPath(Path2D.WIND_EVEN_ODD, xcoords.length);</span>
+<span class="nc" id="L77">        polygon.moveTo((float) mX + 25, mY);</span>
+<span class="nc bnc" id="L78" title="All 2 branches missed.">        for (int i = 0; i &lt; xcoords.length; i++) {</span>
+<span class="nc" id="L79">            polygon.lineTo(xcoords[i], ycoords[i]);</span>
         }
-<span class="nc" id="L80">        polygon.closePath();</span>
-<span class="nc" id="L81">        g2.fill(polygon);</span>
-<span class="nc" id="L82">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
-<span class="nc" id="L83">        g2.setColor(Color.black);</span>
-<span class="nc" id="L84">        g2.setStroke(wideStroke);</span>
-<span class="nc" id="L85">        g2.draw(polygon);</span>
-<span class="nc" id="L86">    }</span>
+<span class="nc" id="L81">        polygon.closePath();</span>
+<span class="nc" id="L82">        g2.fill(polygon);</span>
+<span class="nc" id="L83">        BasicStroke wideStroke = new BasicStroke(2.0f);</span>
+<span class="nc" id="L84">        g2.setColor(Color.black);</span>
+<span class="nc" id="L85">        g2.setStroke(wideStroke);</span>
+<span class="nc" id="L86">        g2.draw(polygon);</span>
+<span class="nc" id="L87">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
-<span class="fc" id="L90">        visitor.visit(this);</span>
-<span class="fc" id="L91">    }</span>
+<span class="fc" id="L91">        visitor.visit(this);</span>
+<span class="fc" id="L92">    }</span>
 
     @Override
     public int getX() {
-<span class="fc" id="L95">        return mX;</span>
+<span class="fc" id="L96">        return mX;</span>
     }
 
     @Override
     public int getY() {
-<span class="fc" id="L100">        return mY;</span>
+<span class="fc" id="L101">        return mY;</span>
     }
 
     public void move(int x, int y) {
-<span class="nc" id="L104">        mX = x;</span>
-<span class="nc" id="L105">        mY = y;</span>
-<span class="nc" id="L106">        this.shapeMoved = true;</span>
-<span class="nc" id="L107">    }</span>
+<span class="fc" id="L105">        mX = x;</span>
+<span class="fc" id="L106">        mY = y;</span>
+<span class="fc" id="L107">        this.shapeMoved = true;</span>
+<span class="fc" id="L108">    }</span>
 
     @Override
 
     public boolean contains(int x, int y) {
-<span class="nc" id="L112">        int[] xcoords = { mX + 25, mX, mX + 50 };</span>
-<span class="nc" id="L113">        int[] ycoords = { mY, mY + 50, mY + 50 };</span>
-<span class="nc" id="L114">        Polygon triangle = new Polygon(xcoords, ycoords, xcoords.length);</span>
+<span class="nc" id="L113">        int[] xcoords = { mX + 25, mX, mX + 50 };</span>
+<span class="nc" id="L114">        int[] ycoords = { mY, mY + 50, mY + 50 };</span>
+<span class="nc" id="L115">        Polygon triangle = new Polygon(xcoords, ycoords, xcoords.length);</span>
 
-<span class="nc" id="L116">        return triangle.contains(x, y);</span>
+<span class="nc" id="L117">        return triangle.contains(x, y);</span>
     }
 
     public void savePosition() {
-<span class="nc" id="L120">        this.previousXPositions.add(mX);</span>
-<span class="nc" id="L121">        this.previousYPositions.add(mY);</span>
-<span class="nc" id="L122">    }</span>
+<span class="fc" id="L121">        this.previousXPositions.add(mX);</span>
+<span class="fc" id="L122">        this.previousYPositions.add(mY);</span>
+<span class="fc" id="L123">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L125" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L126">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L127">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="pc bpc" id="L126" title="2 of 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="fc" id="L127">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="fc" id="L128">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L129">    }</span>
+<span class="fc" id="L130">    }</span>
 
     @Override
     public void setLastXY(int x, int y) {
-<span class="nc" id="L133">        lastX = x;</span>
-<span class="nc" id="L134">        lastY = y;</span>
-<span class="nc" id="L135">    }</span>
+<span class="nc" id="L134">        lastX = x;</span>
+<span class="nc" id="L135">        lastY = y;</span>
+<span class="nc" id="L136">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

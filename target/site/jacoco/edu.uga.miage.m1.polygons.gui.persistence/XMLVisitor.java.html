@@ -2,8 +2,6 @@
 
 import edu.uga.miage.m1.polygons.gui.shapes.Circle;
 import edu.uga.miage.m1.polygons.gui.shapes.Cube;
-import edu.uga.miage.m1.polygons.gui.shapes.GroupeShape;
-import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
 import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import lombok.Getter;
@@ -15,68 +13,38 @@ import lombok.Setter;
  */
 
 @Getter
-<span class="nc" id="L18">@Setter</span>
+<span class="nc" id="L16">@Setter</span>
 public class XMLVisitor implements Visitor {
 
-<span class="fc" id="L21">    private String representation = null;</span>
+<span class="fc" id="L19">    private String representation = null;</span>
 
-<span class="fc" id="L23">    public XMLVisitor() {</span>
+<span class="fc" id="L21">    public XMLVisitor() {</span>
         // empty pour le moment
 
-<span class="fc" id="L26">    }</span>
-
-    @Override
-    public void visit(GroupeShape groupeShape) {
-<span class="nc" id="L30">        StringBuilder representation2 = new StringBuilder();</span>
-<span class="nc" id="L31">        representation2.append(&quot;{\n&quot;)</span>
-<span class="nc" id="L32">                .append(&quot;    \&quot;type\&quot;: \&quot;groupeShape\&quot;,\n&quot;)</span>
-<span class="nc" id="L33">                .append(&quot;    \&quot;shapes\&quot;: [\n&quot;);</span>
-
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (SimpleShape g : groupeShape.shapesGroupe) {</span>
-<span class="nc" id="L36">            String gString = &quot;&quot;;</span>
-<span class="nc bnc" id="L37" title="All 2 branches missed.">            if (g instanceof Circle)</span>
-<span class="nc" id="L38">                gString = &quot;circle&quot;;</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">            else if (g instanceof Triangle)</span>
-<span class="nc" id="L40">                gString = &quot;triangle&quot;;</span>
-
-<span class="nc bnc" id="L42" title="All 2 branches missed.">            else if (g instanceof Cube)</span>
-<span class="nc" id="L43">                gString = &quot;cube&quot;;</span>
-<span class="nc bnc" id="L44" title="All 2 branches missed.">            if (g instanceof Square)</span>
-<span class="nc" id="L45">                gString = &quot;square&quot;;</span>
-
-<span class="nc" id="L47">            representation2.append(&quot;        &quot;).append(generateShapeXML(gString, g.getX(), g.getY())).append(&quot;,\n&quot;);</span>
-<span class="nc" id="L48">        }</span>
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (!groupeShape.shapesGroupe.isEmpty()) {</span>
-<span class="nc" id="L50">            representation2.deleteCharAt(representation2.length() - 2);</span>
-        }
-<span class="nc" id="L52">        representation2.append(&quot;    ]\n&quot;)</span>
-<span class="nc" id="L53">                .append(&quot;}&quot;);</span>
-
-<span class="nc" id="L55">        this.representation = representation2.toString();</span>
-<span class="nc" id="L56">    }</span>
+<span class="fc" id="L24">    }</span>
 
     @Override
     public void visit(Circle circle) {
-<span class="fc" id="L60">        representation = generateShapeXML(&quot;circle&quot;, circle.getX(), circle.getY());</span>
-<span class="fc" id="L61">    }</span>
+<span class="fc" id="L28">        representation = generateShapeXML(&quot;circle&quot;, circle.getX(), circle.getY());</span>
+<span class="fc" id="L29">    }</span>
 
     @Override
     public void visit(Square square) {
-<span class="fc" id="L65">        representation = generateShapeXML(&quot;square&quot;, square.getX(), square.getY());</span>
-<span class="fc" id="L66">    }</span>
+<span class="fc" id="L33">        representation = generateShapeXML(&quot;square&quot;, square.getX(), square.getY());</span>
+<span class="fc" id="L34">    }</span>
 
     @Override
     public void visit(Cube cube) {
-<span class="nc" id="L70">        representation = generateShapeXML(&quot;cube&quot;, cube.getX(), cube.getY());</span>
-<span class="nc" id="L71">    }</span>
+<span class="nc" id="L38">        representation = generateShapeXML(&quot;cube&quot;, cube.getX(), cube.getY());</span>
+<span class="nc" id="L39">    }</span>
 
     @Override
     public void visit(Triangle triangle) {
-<span class="fc" id="L75">        representation = generateShapeXML(&quot;triangle&quot;, triangle.getX(), triangle.getY());</span>
-<span class="fc" id="L76">    }</span>
+<span class="fc" id="L43">        representation = generateShapeXML(&quot;triangle&quot;, triangle.getX(), triangle.getY());</span>
+<span class="fc" id="L44">    }</span>
 
     private String generateShapeXML(String type, int x, int y) {
-<span class="fc" id="L79">        return String.format(&quot;&lt;shape&gt;&lt;type&gt;%s&lt;/type&gt;&lt;x&gt;%d&lt;/x&gt;&lt;y&gt;%d&lt;/y&gt;&lt;/shape&gt;&quot;, type, x, y);</span>
+<span class="fc" id="L47">        return String.format(&quot;&lt;shape&gt;&lt;type&gt;%s&lt;/type&gt;&lt;x&gt;%d&lt;/x&gt;&lt;y&gt;%d&lt;/y&gt;&lt;/shape&gt;&quot;, type, x, y);</span>
     }
 
 }

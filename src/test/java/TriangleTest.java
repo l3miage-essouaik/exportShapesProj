@@ -1,5 +1,6 @@
 import edu.uga.miage.m1.polygons.gui.persistence.JSonVisitor;
 import edu.uga.miage.m1.polygons.gui.persistence.XMLVisitor;
+import edu.uga.miage.m1.polygons.gui.shapes.Square;
 import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,5 +49,31 @@ class TriangleTest {
                 "    \"y\": -20\n" +
                 "}";
         assertEquals(expResult, result);
+    }
+
+    @Test
+    @DisplayName("Test triangle move")
+    void testTriangleMove() {
+        Triangle triangle = new Triangle(30, 35);
+
+        triangle.move(50, 60);
+
+        assertEquals(50, triangle.getX());
+        assertEquals(60, triangle.getY());
+    }
+
+    @Test
+    @DisplayName("Test triangle save and restore position")
+    void testTriangleSaveAndRestorePosition() {
+        Triangle triangle = new Triangle(30, 35);
+
+        triangle.move(50, 60);
+        triangle.savePosition();
+
+        triangle.move(70, 80);
+        triangle.restorePosition();
+
+        assertEquals(50, triangle.getX());
+        assertEquals(60, triangle.getY());
     }
 }

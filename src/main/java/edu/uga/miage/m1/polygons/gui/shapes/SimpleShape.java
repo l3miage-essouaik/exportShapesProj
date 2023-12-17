@@ -17,6 +17,9 @@ public interface SimpleShape {
      * 
      * @param g2 The graphics object used for painting.
      **/
+
+    String getTypeShape();
+
     void draw(Graphics2D g2);
 
     int getX();

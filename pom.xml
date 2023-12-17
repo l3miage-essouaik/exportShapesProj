@@ -28,6 +28,11 @@
 			<version>5.4.0</version>
 			<scope>compile</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.9</version>
+		</dependency>
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
@@ -71,6 +76,17 @@
                     </execution>
                 </executions>
             </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>3.2.2</version>
+				<configuration>
+					<includes>
+						<include>**/persistance/**</include>
+					</includes>
+				</configuration>
+			</plugin>
        </plugins>
 	</build>
+	
 </project>

@@ -3,45 +3,39 @@
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.uga.miage.m1.polygons.gui.persistence.Visitable;
-import edu.uga.miage.m1.polygons.gui.persistence.Visitor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-<span class="nc" id="L12">@Setter</span>
-public class GroupeShape implements Visitable {
-<span class="nc" id="L14">    public List&lt;SimpleShape&gt; shapesGroupe;</span>
-<span class="nc" id="L15">    int x;</span>
-<span class="nc" id="L16">    int y;</span>
+<span class="nc" id="L10">@Setter</span>
+public class GroupeShape {
+<span class="nc" id="L12">    private List&lt;SimpleShape&gt; shapesGroupe;</span>
+<span class="nc" id="L13">    int x;</span>
+<span class="nc" id="L14">    int y;</span>
 
-<span class="nc" id="L18">    public GroupeShape(int x, int y, List&lt;SimpleShape&gt; groupe) {</span>
-<span class="nc" id="L19">        this.x = x;</span>
-<span class="nc" id="L20">        this.y = y;</span>
-<span class="nc" id="L21">        this.shapesGroupe = new ArrayList&lt;SimpleShape&gt;();</span>
-<span class="nc" id="L22">        this.shapesGroupe = groupe;</span>
-<span class="nc" id="L23">    }</span>
+<span class="nc" id="L16">    public GroupeShape(int x, int y, List&lt;SimpleShape&gt; groupe) {</span>
+<span class="nc" id="L17">        this.x = x;</span>
+<span class="nc" id="L18">        this.y = y;</span>
+<span class="nc" id="L19">        this.shapesGroupe = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L20">        this.shapesGroupe = groupe;</span>
+<span class="nc" id="L21">    }</span>
 
-    public void moveElem() {
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        for (SimpleShape shape : shapesGroupe) {</span>
-<span class="nc" id="L27">            shape.move(this.x + shape.getLastX(), this.y + shape.getLastY());</span>
-<span class="nc" id="L28">        }</span>
-<span class="nc" id="L29">    }</span>
+    public void moveShapes() {
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (SimpleShape shape : shapesGroupe) {</span>
+<span class="nc" id="L25">            shape.move(this.x + shape.getLastX(), this.y + shape.getLastY());</span>
+<span class="nc" id="L26">        }</span>
+<span class="nc" id="L27">    }</span>
 
     public void moveGroupe(int x, int y) {
-<span class="nc" id="L32">        this.x = x;</span>
-<span class="nc" id="L33">        this.y = y;</span>
-<span class="nc" id="L34">        moveElem();</span>
-<span class="nc" id="L35">    }</span>
+<span class="nc" id="L30">        this.x = x;</span>
+<span class="nc" id="L31">        this.y = y;</span>
+<span class="nc" id="L32">        moveShapes();</span>
+<span class="nc" id="L33">    }</span>
 
     public void setXandY(int x, int y) {
-<span class="nc" id="L38">        this.x = x;</span>
-<span class="nc" id="L39">        this.y = y;</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L36">        this.x = x;</span>
+<span class="nc" id="L37">        this.y = y;</span>
+<span class="nc" id="L38">    }</span>
 
-    @Override
-    public void accept(Visitor visitor) {
-<span class="nc" id="L44">        visitor.visit(this);</span>
-<span class="nc" id="L45">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ImportShapeJson.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">myproject_g2_5</a> &gt; <a href="index.source.html" class="el_package">edu.uga.miage.m1.polygons.gui.persistence</a> &gt; <span class="el_source">ImportShapeJson.java</span></div><h1>ImportShapeJson.java</h1><pre class="source lang-java linenums">package edu.uga.miage.m1.polygons.gui.persistence;
+
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
+import edu.uga.miage.m1.polygons.gui.shapes.Circle;
+import edu.uga.miage.m1.polygons.gui.shapes.Cube;
+import edu.uga.miage.m1.polygons.gui.shapes.SimpleShape;
+import edu.uga.miage.m1.polygons.gui.shapes.Square;
+import edu.uga.miage.m1.polygons.gui.shapes.Triangle;
+
+<span class="nc" id="L19">public class ImportShapeJson {</span>
+    public List&lt;SimpleShape&gt; importShapesFromJSON(String filePath) {
+<span class="nc" id="L21">        List&lt;SimpleShape&gt; shapes = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L22">        Gson gson = new Gson();</span>
+
+<span class="nc" id="L24">        try (Reader reader = new FileReader(filePath)) {</span>
+<span class="nc" id="L25">            JsonObject jsonObject = gson.fromJson(reader, JsonObject.class);</span>
+<span class="nc" id="L26">            JsonArray shapesArray = jsonObject.getAsJsonArray(&quot;shapes&quot;);</span>
+
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            for (JsonElement shapeElement : shapesArray) {</span>
+<span class="nc" id="L29">                JsonObject shapeObject = shapeElement.getAsJsonObject().get(&quot;shape&quot;).getAsJsonObject();</span>
+
+                // Extraction des donnÃ©es (type, x, y)
+<span class="nc" id="L32">                String type = shapeObject.get(&quot;type&quot;).getAsString();</span>
+<span class="nc" id="L33">                int x = shapeObject.get(&quot;x&quot;).getAsInt();</span>
+<span class="nc" id="L34">                int y = shapeObject.get(&quot;y&quot;).getAsInt();</span>
+<span class="nc" id="L35">                SimpleShape shape = createShapeFromData(type, x, y);</span>
+<span class="nc" id="L36">                shapes.add(shape);</span>
+<span class="nc" id="L37">            }</span>
+<span class="nc" id="L38">        } catch (Exception e) {</span>
+<span class="nc" id="L39">            e.printStackTrace();</span>
+<span class="nc" id="L40">        }</span>
+<span class="nc" id="L41">        return shapes;</span>
+    }
+
+    private SimpleShape createShapeFromData(String type, int x, int y) {
+<span class="nc bnc" id="L45" title="All 5 branches missed.">        switch (type) {</span>
+            case &quot;circle&quot;:
+<span class="nc" id="L47">                return new Circle(x, y);</span>
+
+            case &quot;square&quot;:
+<span class="nc" id="L50">                return new Square(x, y);</span>
+
+            case &quot;triangle&quot;:
+<span class="nc" id="L53">                return new Triangle(x, y);</span>
+
+            case &quot;cube&quot;:
+<span class="nc" id="L56">                return new Cube(x, y);</span>
+
+            default:
+                break;
+        }
+<span class="nc" id="L61">        return null;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

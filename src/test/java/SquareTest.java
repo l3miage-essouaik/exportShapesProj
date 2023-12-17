@@ -35,6 +35,32 @@ class SquareTest {
     }
 
     @Test
+    @DisplayName("Test Square move")
+    void testSquareMove() {
+        Square square = new Square(30, 35);
+
+        square.move(50, 60);
+
+        assertEquals(50, square.getX());
+        assertEquals(60, square.getY());
+    }
+
+    @Test
+    @DisplayName("Test Square save and restore position")
+    void testSquareSaveAndRestorePosition() {
+        Square square = new Square(30, 35);
+
+        square.move(50, 60);
+        square.savePosition();
+
+        square.move(70, 80);
+        square.restorePosition();
+
+        assertEquals(50, square.getX());
+        assertEquals(60, square.getY());
+    }
+
+    @Test
     @DisplayName("Test accept() squareJson")
     void testAcceptJSON() {
         Square square = new Square(5, 5);

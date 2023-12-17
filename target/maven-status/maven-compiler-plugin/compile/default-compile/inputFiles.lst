@@ -1,4 +1,5 @@
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\Command.java
+C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\AddCircleCommand.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\DrawingPanel.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\shapes\Cube.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\AddShapeCommand.java
@@ -6,6 +7,7 @@ C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\UndoShapeCommand.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\shapes\SimpleShape.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\persistence\Visitor.java
+C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\persistence\ImportShapeJson.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\shapes\GroupeShape.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\JDrawingFrame.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\GUIHelper.java
@@ -14,6 +16,8 @@ C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\shapes\Triangle.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\persistence\Visitable.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\MoveShapeCommand.java
+C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\AddSquareCommand.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\App.java
+C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\AddTriangleCommand.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\command\CommandInvoker.java
 C:\Users\Mouad\OneDrive\Desktop\projet_Patron\exportShapesProj\src\main\java\edu\uga\miage\m1\polygons\gui\persistence\XMLVisitor.java

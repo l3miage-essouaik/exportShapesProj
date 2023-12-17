@@ -13,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Cube implements SimpleShape, Visitable {
+    final String typeShape = "cube";
 
     int mX;
 

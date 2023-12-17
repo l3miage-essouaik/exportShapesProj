@@ -46,6 +46,7 @@ import lombok.Setter;
 @Setter
 public class Triangle implements SimpleShape, Visitable {
 
+    final String typeShape = "triangle";
     int mX;
 
     int mY;

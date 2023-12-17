@@ -35,6 +35,32 @@ class CircleTest {
     }
 
     @Test
+    @DisplayName("Test Circle move")
+    void testCircleMove() {
+        Circle circle = new Circle(30, 35);
+
+        circle.move(50, 60);
+
+        assertEquals(50, circle.getX());
+        assertEquals(60, circle.getY());
+    }
+
+    @Test
+    @DisplayName("Test Circle save and restore position")
+    void testCircleSaveAndRestorePosition() {
+        Circle circle = new Circle(30, 35);
+
+        circle.move(50, 60);
+        circle.savePosition();
+
+        circle.move(70, 80);
+        circle.restorePosition();
+
+        assertEquals(50, circle.getX());
+        assertEquals(60, circle.getY());
+    }
+
+    @Test
     @DisplayName("Test accept() CircleJson")
     void testAcceptJSON() {
         Circle circle = new Circle(5, 5);

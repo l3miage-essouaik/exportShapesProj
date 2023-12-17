@@ -13,20 +13,21 @@ import lombok.Setter;
 @Getter
 <span class="nc" id="L14">@Setter</span>
 public class Cube implements SimpleShape, Visitable {
+<span class="nc" id="L16">    final String typeShape = &quot;cube&quot;;</span>
 
-<span class="nc" id="L17">    int mX;</span>
+<span class="nc" id="L18">    int mX;</span>
 
-<span class="nc" id="L19">    int mY;</span>
-<span class="nc" id="L20">    int lastX;</span>
-<span class="nc" id="L21">    int lastY;</span>
-<span class="nc" id="L22">    boolean shapeMoved;</span>
-<span class="nc" id="L23">    private List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
-<span class="nc" id="L24">    private List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L20">    int mY;</span>
+<span class="nc" id="L21">    int lastX;</span>
+<span class="nc" id="L22">    int lastY;</span>
+<span class="nc" id="L23">    boolean shapeMoved;</span>
+<span class="nc" id="L24">    private List&lt;Integer&gt; previousXPositions = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L25">    private List&lt;Integer&gt; previousYPositions = new ArrayList&lt;&gt;();</span>
 
-<span class="nc" id="L26">    public Cube(int x, int y) {</span>
-<span class="nc" id="L27">        mX = x - 25;</span>
-<span class="nc" id="L28">        mY = y - 25;</span>
-<span class="nc" id="L29">    }</span>
+<span class="nc" id="L27">    public Cube(int x, int y) {</span>
+<span class="nc" id="L28">        mX = x - 25;</span>
+<span class="nc" id="L29">        mY = y - 25;</span>
+<span class="nc" id="L30">    }</span>
 
     /**
      * Implements the &lt;tt&gt;SimpleShape.draw()&lt;/tt&gt; method for painting
@@ -35,52 +36,52 @@ public class Cube implements SimpleShape, Visitable {
      * @param g2 The graphics object used for painting.
      */
     public void draw(Graphics2D g2) {
-<span class="nc" id="L38">        CubePanel cube = new CubePanel(50, mX, mY);</span>
-<span class="nc" id="L39">        cube.paintComponent(g2);</span>
-<span class="nc" id="L40">    }</span>
+<span class="nc" id="L39">        CubePanel cube = new CubePanel(50, mX, mY);</span>
+<span class="nc" id="L40">        cube.paintComponent(g2);</span>
+<span class="nc" id="L41">    }</span>
 
     @Override
     public void accept(Visitor visitor) {
-<span class="nc" id="L44">        visitor.visit(this);</span>
-<span class="nc" id="L45">    }</span>
+<span class="nc" id="L45">        visitor.visit(this);</span>
+<span class="nc" id="L46">    }</span>
 
     public int getX() {
-<span class="nc" id="L48">        return mX;</span>
+<span class="nc" id="L49">        return mX;</span>
     }
 
     public int getY() {
-<span class="nc" id="L52">        return mY;</span>
+<span class="nc" id="L53">        return mY;</span>
     }
 
     public void move(int x, int y) {
-<span class="nc" id="L56">        mX = x;</span>
-<span class="nc" id="L57">        mY = y;</span>
-<span class="nc" id="L58">        this.shapeMoved = true;</span>
-<span class="nc" id="L59">    }</span>
+<span class="nc" id="L57">        mX = x;</span>
+<span class="nc" id="L58">        mY = y;</span>
+<span class="nc" id="L59">        this.shapeMoved = true;</span>
+<span class="nc" id="L60">    }</span>
 
     @Override
 
     public boolean contains(int x, int y) {
-<span class="nc" id="L64">        return false;</span>
+<span class="nc" id="L65">        return false;</span>
     }
 
     public void savePosition() {
-<span class="nc" id="L68">        this.previousXPositions.add(mX);</span>
-<span class="nc" id="L69">        this.previousYPositions.add(mY);</span>
-<span class="nc" id="L70">    }</span>
+<span class="nc" id="L69">        this.previousXPositions.add(mX);</span>
+<span class="nc" id="L70">        this.previousYPositions.add(mY);</span>
+<span class="nc" id="L71">    }</span>
 
     public void restorePosition() {
-<span class="nc bnc" id="L73" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
-<span class="nc" id="L74">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
-<span class="nc" id="L75">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
+<span class="nc bnc" id="L74" title="All 4 branches missed.">        if (!previousXPositions.isEmpty() &amp;&amp; !previousYPositions.isEmpty()) {</span>
+<span class="nc" id="L75">            mX = this.previousXPositions.remove(previousXPositions.size() - 1);</span>
+<span class="nc" id="L76">            mY = this.previousYPositions.remove(previousYPositions.size() - 1);</span>
         }
-<span class="nc" id="L77">    }</span>
+<span class="nc" id="L78">    }</span>
 
     @Override
     public void setLastXY(int x, int y) {
-<span class="nc" id="L81">        lastX = x;</span>
-<span class="nc" id="L82">        lastY = y;</span>
-<span class="nc" id="L83">    }</span>
+<span class="nc" id="L82">        lastX = x;</span>
+<span class="nc" id="L83">        lastY = y;</span>
+<span class="nc" id="L84">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
